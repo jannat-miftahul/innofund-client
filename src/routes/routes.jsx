@@ -10,6 +10,7 @@ import AddCampaign from "../pages/AddCampaign";
 import MyCampaigns from "../pages/MyCampaigns";
 import MyDonations from "../pages/MyDonations";
 import AllCampaigns from "../pages/AllCampaigns";
+import CampaignDetails from "../pages/CampaignDetails";
 
 const routes = createBrowserRouter([
     {

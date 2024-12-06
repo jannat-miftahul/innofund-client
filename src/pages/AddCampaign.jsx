@@ -12,11 +12,13 @@ const AddCampaign = () => {
             description: form.description.value,
             minDonation: form.minDonation.value,
             deadline: form.deadline.value,
+            email: form.email.value,
+            username: form.username.value,
         };
         // console.log(campaign);
 
         // Add campaign to the database
-        fetch("http://localhost:5000/campaign", {
+        fetch("http://localhost:5000/campaigns", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -150,6 +152,7 @@ const AddCampaign = () => {
                             </label>
                             <input
                                 type="email"
+                                name="email"
                                 // value={user.email}
                                 className="input input-bordered w-full bg-gray-100"
                                 readOnly
@@ -163,6 +166,7 @@ const AddCampaign = () => {
                             </label>
                             <input
                                 type="text"
+                                name="username"
                                 // value={user.name}
                                 className="input input-bordered w-full bg-gray-100"
                                 readOnly
