@@ -36,7 +36,7 @@ const Navbar = ({ user, onLogout }) => {
                             <NavLink to="/all-campaigns">All Campaigns</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/add-new-campaign">
+                            <NavLink to="/add-campaign">
                                 Add New Campaign
                             </NavLink>
                         </li>
@@ -62,7 +62,7 @@ const Navbar = ({ user, onLogout }) => {
                         <NavLink to="/all-campaigns">All Campaigns</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/add-new-campaign">
+                        <NavLink to="/add-campaign">
                             Add New Campaign
                         </NavLink>
                     </li>

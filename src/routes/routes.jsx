@@ -5,6 +5,11 @@ import Signin from "../pages/Signin";
 import Signup from "../pages/Signup";
 import Page404 from "../pages/Page404";
 import HomePage from "../pages/HomePage";
+import RunningCampaigns from "../components/RunningCampaigns";
+import AddCampaign from "../pages/AddCampaign";
+import MyCampaigns from "../pages/MyCampaigns";
+import MyDonations from "../pages/MyDonations";
+import AllCampaigns from "../pages/AllCampaigns";
 
 const routes = createBrowserRouter([
     {
@@ -14,6 +19,28 @@ const routes = createBrowserRouter([
             {
                 path: "/",
                 element: <HomePage />,
+                children: [
+                    {
+                        path: "/running-campaigns",
+                        element: <RunningCampaigns />,
+                    },
+                ],
+            },
+            {
+                path: "all-campaigns",
+                element: <AllCampaigns />,
+            },
+            {
+                path: "/add-campaign",
+                element: <AddCampaign />,
+            },
+            {
+                path: "/my-campaigns",
+                element: <MyCampaigns />,
+            },
+            {
+                path: "/my-donations",
+                element: <MyDonations />,
             },
         ],
     },
