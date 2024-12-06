@@ -3,11 +3,19 @@ import HomeLayout from "../layouts/HomeLayout";
 import AuthLayout from "../layouts/AuthLayout";
 import Signin from "../pages/Signin";
 import Signup from "../pages/Signup";
+import Page404 from "../pages/Page404";
+import HomePage from "../pages/HomePage";
 
 const routes = createBrowserRouter([
     {
         path: "/",
         element: <HomeLayout />,
+        children: [
+            {
+                path: "/",
+                element: <HomePage />,
+            },
+        ],
     },
     {
         path: "auth",
@@ -25,7 +33,7 @@ const routes = createBrowserRouter([
     },
     {
         path: "*",
-        element: <div>404 Not Found</div>,
+        element: <Page404 />,
     },
 ]);
 
