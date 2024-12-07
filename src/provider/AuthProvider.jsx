@@ -10,6 +10,7 @@ import {
     onAuthStateChanged,
     signInWithEmailAndPassword,
     signOut,
+    updateProfile,
 } from "firebase/auth";
 import PropTypes from "prop-types";
 
@@ -41,6 +42,13 @@ const AuthProvider = ({ children }) => {
         return signOut(authData);
     };
 
+    const updateUserProfile = async (profile) => {
+        if (auth.currentUser) {
+            await updateProfile(auth.currentUser, profile);
+            setUser({ ...auth.currentUser, ...profile });
+        }
+    };
+
     const signInWithGoogle = async () => {
         try {
             const result = await signInWithPopup(auth, googleProvider);
@@ -57,6 +65,7 @@ const AuthProvider = ({ children }) => {
         logOut,
         userLogin,
         loading,
+        updateUserProfile,
         signInWithGoogle,
     };
 
@@ -69,7 +78,20 @@ const AuthProvider = ({ children }) => {
     }, []);
 
     return (
-        <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+        <AuthContext.Provider
+            value={{
+                user,
+                setUser,
+                createNewUser,
+                logOut,
+                userLogin,
+                loading,
+                updateUserProfile,
+                signInWithGoogle,
+            }}
+        >
+            {children}
+        </AuthContext.Provider>
     );
 };
 

@@ -1,47 +1,86 @@
+// import { useContext, useState } from "react";
 import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
+// import { AuthContext } from "../provider/AuthProvider";
 // import { AuthContext } from "../provider/AuthContext";
 
 const Signin = () => {
-    // const { signinUser } = useContext(AuthContext);
+    const { userLogin, setUser, signInWithGoogle } = useContext(AuthContext);
+    const auth = useContext(AuthContext);
+    console.log(auth);
+    const [error, setError] = useState(null);
 
-    const handleSignin = (e) => {
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-
-        const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
-
-        signinUser(email, password)
+        // console.log("Logging in...");
+        // get the form data
+        const formData = e.target;
+        const email = formData.email.value;
+        const password = formData.password.value;
+        // console.log({ email, password });
+        userLogin(email, password)
             .then((result) => {
-                console.log(result.user);
-
-                // update last login time
-                const lastSigninTime = result?.user?.metadata?.lastSignInTime;
-                const loginInfo = { email, lastSigninTime };
-
-                fetch(`https://espresso-server-gamma.vercel.app/users`, {
-                    method: "PATCH",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(loginInfo),
-                })
-                    .then((res) => res.json())
-                    .then((data) => {
-                        console.log("user login info updated", data);
-                    });
+                const user = result.user;
+                setUser(user);
+                navigate(location?.state ? location.state : "/");
             })
-            .catch((error) => {
-                console.log(error);
+            .catch((err) => {
+                setError({ ...error, login: err.code });
+                toast.error(err.message);
             });
     };
+
+    // const handleGoogleSignIn = async () => {
+    //     try {
+    //         await signInWithGoogle();
+    //         navigate(location?.state ? location.state : "/");
+    //     } catch (error) {
+    //         setError({ ...error, general: error.message });
+    //         toast.error(error.message);
+    //     }
+    // };
+
+    // const handleSignin = (e) => {
+    //     e.preventDefault();
+
+    //     const form = e.target;
+    //     const email = form.email.value;
+    //     const password = form.password.value;
+
+    //     signinUser(email, password)
+    //         .then((result) => {
+    //             console.log(result.user);
+
+    //             // update last login time
+    //             const lastSigninTime = result?.user?.metadata?.lastSignInTime;
+    //             const loginInfo = { email, lastSigninTime };
+
+    //             fetch(`https://espresso-server-gamma.vercel.app/users`, {
+    //                 method: "PATCH",
+    //                 headers: {
+    //                     "Content-Type": "application/json",
+    //                 },
+    //                 body: JSON.stringify(loginInfo),
+    //             })
+    //                 .then((res) => res.json())
+    //                 .then((data) => {
+    //                     console.log("user login info updated", data);
+    //                 });
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    // };
 
     return (
         <div className="flex justify-center items-center bg-lightGray py-10">
             <div className="card bg-white/45 w-full max-w-lg shrink-0 border border-darkBrown rounded-md p-10">
-                <form onSubmit={handleSignin} className="card-body">
+                <form onSubmit={handleSubmit} className="card-body">
                     <div className="form-control">
                         <h3 className="text-xl font-semibold text-center pb-4">
                             Sign In to your account
