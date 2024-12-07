@@ -1,8 +1,9 @@
 // import { useContext, useState } from "react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import toast from "react-hot-toast";
 // import { AuthContext } from "../provider/AuthProvider";
 // import { AuthContext } from "../provider/AuthContext";
 
@@ -35,15 +36,15 @@ const Signin = () => {
             });
     };
 
-    // const handleGoogleSignIn = async () => {
-    //     try {
-    //         await signInWithGoogle();
-    //         navigate(location?.state ? location.state : "/");
-    //     } catch (error) {
-    //         setError({ ...error, general: error.message });
-    //         toast.error(error.message);
-    //     }
-    // };
+    const handleGoogleSignIn = async () => {
+        try {
+            await signInWithGoogle();
+            navigate(location?.state ? location.state : "/");
+        } catch (error) {
+            setError({ ...error, general: error.message });
+            toast.error(error.message);
+        }
+    };
 
     // const handleSignin = (e) => {
     //     e.preventDefault();
@@ -114,11 +115,11 @@ const Signin = () => {
                             required
                         />
 
-                        {/* {error?.login && (
+                        {error?.login && (
                             <label className="label text-red-500 text-sm">
                                 {error.login}
                             </label>
-                        )} */}
+                        )}
 
                         <label className="label">
                             <Link
@@ -137,7 +138,7 @@ const Signin = () => {
 
                         {/* Sign in with Google */}
                         <button
-                            // onClick={handleGoogleSignIn}
+                            onClick={handleGoogleSignIn}
                             className="btn btn-outline px-6 py-2 rounded-full"
                         >
                             <FcGoogle size={24} />
