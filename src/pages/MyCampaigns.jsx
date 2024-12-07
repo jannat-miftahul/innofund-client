@@ -72,14 +72,14 @@ const MyCampaigns = () => {
                             <td className="py-2 px-4">{campaign.deadline}</td>
                             <td className="py-2 px-4">
                                 <Link
-                                    to={`/update-campaign/${campaign._id}`}
-                                    className="btn btn-primary mr-2"
+                                    to={`/updateCampaign/${campaign._id}`}
+                                    className="btn btn-outline btn-info mr-2"
                                 >
                                     Update
                                 </Link>
                                 <button
                                     onClick={() => handleDelete(campaign._id)}
-                                    className="btn btn-danger"
+                                    className="btn btn-outline btn-error"
                                 >
                                     Delete
                                 </button>

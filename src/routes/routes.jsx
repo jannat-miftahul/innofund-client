@@ -5,7 +5,6 @@ import Signin from "../pages/Signin";
 import Signup from "../pages/Signup";
 import Page404 from "../pages/Page404";
 import HomePage from "../pages/HomePage";
-import RunningCampaigns from "../components/RunningCampaigns";
 import AddCampaign from "../pages/AddCampaign";
 import MyCampaigns from "../pages/MyCampaigns";
 import MyDonations from "../pages/MyDonations";
@@ -20,21 +19,14 @@ const routes = createBrowserRouter([
             {
                 path: "/",
                 element: <HomePage />,
-                children: [
-                    {
-                        path: "/running-campaigns",
-                        element: <RunningCampaigns />,
-                        loader: () => fetch("http://localhost:5000/campaigns"),
-                    },
-                ],
             },
             {
-                path: "all-campaigns",
+                path: "allCampaigns",
                 element: <AllCampaigns />,
                 loader: () => fetch("http://localhost:5000/campaigns"),
             },
             {
-                path: "/add-campaign",
+                path: "/addCampaign",
                 element: <AddCampaign />,
             },
             {
@@ -44,11 +36,11 @@ const routes = createBrowserRouter([
                     fetch(`http://localhost:5000/campaigns/${params.id}`),
             },
             {
-                path: "/my-campaigns",
+                path: "/myCampaigns",
                 element: <MyCampaigns />,
             },
             {
-                path: "/my-donations",
+                path: "/myDonations",
                 element: <MyDonations />,
             },
         ],

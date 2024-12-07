@@ -4,13 +4,9 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
-// import { AuthContext } from "../provider/AuthProvider";
-// import { AuthContext } from "../provider/AuthContext";
 
 const Signin = () => {
     const { userLogin, setUser, signInWithGoogle } = useContext(AuthContext);
-    const auth = useContext(AuthContext);
-    console.log(auth);
     const [error, setError] = useState(null);
 
     const location = useLocation();

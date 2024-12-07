@@ -1,6 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
-const Navbar = ({ user, onLogout }) => {
+const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
     return (
         <div className="navbar bg-paleYellow/35 backdrop-blur-md bg-opacity-60 sticky top-0 z-50">
             <div className="navbar-start">
@@ -33,11 +37,7 @@ const Navbar = ({ user, onLogout }) => {
                             <NavLink
                                 to="/"
                                 className={({ isActive }) =>
-                                    `tab ${
-                                        isActive
-                                            ? "text-brightPink"
-                                            : ""
-                                    }`
+                                    `tab ${isActive ? "text-brightPink" : ""}`
                                 }
                             >
                                 Home
@@ -45,13 +45,9 @@ const Navbar = ({ user, onLogout }) => {
                         </li>
                         <li>
                             <NavLink
-                                to="/all-campaigns"
+                                to="/allCampaigns"
                                 className={({ isActive }) =>
-                                    `tab ${
-                                        isActive
-                                            ? "text-brightPink"
-                                            : ""
-                                    }`
+                                    `tab ${isActive ? "text-brightPink" : ""}`
                                 }
                             >
                                 All Campaigns
@@ -59,13 +55,9 @@ const Navbar = ({ user, onLogout }) => {
                         </li>
                         <li>
                             <NavLink
-                                to="/add-campaign"
+                                to="/addCampaign"
                                 className={({ isActive }) =>
-                                    `tab ${
-                                        isActive
-                                            ? "text-brightPink"
-                                            : ""
-                                    }`
+                                    `tab ${isActive ? "text-brightPink" : ""}`
                                 }
                             >
                                 Add New Campaign
@@ -73,13 +65,9 @@ const Navbar = ({ user, onLogout }) => {
                         </li>
                         <li>
                             <NavLink
-                                to="/my-campaigns"
+                                to="/myCampaigns"
                                 className={({ isActive }) =>
-                                    `tab ${
-                                        isActive
-                                            ? "text-brightPink"
-                                            : ""
-                                    }`
+                                    `tab ${isActive ? "text-brightPink" : ""}`
                                 }
                             >
                                 My Campaigns
@@ -87,13 +75,9 @@ const Navbar = ({ user, onLogout }) => {
                         </li>
                         <li>
                             <NavLink
-                                to="/my-donations"
+                                to="/myDonations"
                                 className={({ isActive }) =>
-                                    `tab ${
-                                        isActive
-                                            ? "text-brightPink"
-                                            : ""
-                                    }`
+                                    `tab ${isActive ? "text-brightPink" : ""}`
                                 }
                             >
                                 My Donations
@@ -112,9 +96,7 @@ const Navbar = ({ user, onLogout }) => {
                         <NavLink
                             to="/"
                             className={({ isActive }) =>
-                                `tab ${
-                                    isActive ? "text-brightPink" : ""
-                                }`
+                                `tab ${isActive ? "text-brightPink" : ""}`
                             }
                         >
                             Home
@@ -122,11 +104,9 @@ const Navbar = ({ user, onLogout }) => {
                     </li>
                     <li>
                         <NavLink
-                            to="/all-campaigns"
+                            to="/allCampaigns"
                             className={({ isActive }) =>
-                                `tab ${
-                                    isActive ? "text-brightPink" : ""
-                                }`
+                                `tab ${isActive ? "text-brightPink" : ""}`
                             }
                         >
                             All Campaigns
@@ -134,11 +114,9 @@ const Navbar = ({ user, onLogout }) => {
                     </li>
                     <li>
                         <NavLink
-                            to="/add-campaign"
+                            to="/addCampaign"
                             className={({ isActive }) =>
-                                `tab ${
-                                    isActive ? "text-brightPink" : ""
-                                }`
+                                `tab ${isActive ? "text-brightPink" : ""}`
                             }
                         >
                             Add New Campaign
@@ -146,11 +124,9 @@ const Navbar = ({ user, onLogout }) => {
                     </li>
                     <li>
                         <NavLink
-                            to="/my-campaigns"
+                            to="/myCampaigns"
                             className={({ isActive }) =>
-                                `tab ${
-                                    isActive ? "text-brightPink" : ""
-                                }`
+                                `tab ${isActive ? "text-brightPink" : ""}`
                             }
                         >
                             My Campaigns
@@ -158,11 +134,9 @@ const Navbar = ({ user, onLogout }) => {
                     </li>
                     <li>
                         <NavLink
-                            to="/my-donations"
+                            to="/myDonations"
                             className={({ isActive }) =>
-                                `tab ${
-                                    isActive ? "text-brightPink" : ""
-                                }`
+                                `tab ${isActive ? "text-brightPink" : ""}`
                             }
                         >
                             My Donations
@@ -172,38 +146,36 @@ const Navbar = ({ user, onLogout }) => {
             </div>
 
             <div className="navbar-end">
-                {user ? (
-                    <div className="dropdown dropdown-end">
-                        <label
-                            tabIndex={0}
-                            className="btn btn-ghost btn-circle avatar"
-                        >
-                            <div className="w-10 rounded-full">
-                                <img src={user.photoURL} alt="User Avatar" />
+                {user && user?.email ? (
+                    <div className="flex items-center gap-4">
+                        <div className="relative flex flex-col items-center group">
+                            <img
+                                src={
+                                    user?.photoURL ||
+                                    "https://i.ibb.co.com/P1n2z8D/profile-icon-design-free-vector.jpg"
+                                }
+                                alt="user"
+                                className="w-10 h-10 rounded-full"
+                            />
+                            <div className="absolute -bottom-12 bg-paleYellow text-black text-sm rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                {user?.displayName || user?.email}
                             </div>
-                        </label>
-                        <ul
-                            tabIndex={0}
-                            className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
-                        >
-                            <li>
-                                <NavLink className="justify-between">
-                                    {user.displayName}
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink onClick={onLogout}>Log out</NavLink>
-                            </li>
-                        </ul>
+                        </div>
+
+                        <div>
+                            <Link onClick={logOut} className="btn bg-neonGreen">
+                                Log out
+                            </Link>
+                        </div>
                     </div>
                 ) : (
                     <div className="space-x-4">
-                        <NavLink to="/auth/signin" className="btn bg-neonGreen">
+                        <Link to="/auth/signin" className="btn bg-neonGreen">
                             Sign in
-                        </NavLink>
-                        <NavLink to="/auth/signup" className="btn bg-neonGreen">
+                        </Link>
+                        <Link to="/auth/signup" className="btn bg-neonGreen">
                             Sign up
-                        </NavLink>
+                        </Link>
                     </div>
                 )}
             </div>
