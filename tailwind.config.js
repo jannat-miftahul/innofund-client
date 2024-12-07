@@ -7,10 +7,18 @@ export default {
     theme: {
         extend: {
             colors: {
-                lightCream: "#FAF6E3",
-                paleGreen: "#D8DBBD",
-                warmBrown: "#B59F78",
-                deepBlue: "#2A3663",
+                // lightPurple: "#D9D7F1",
+                // lightYellow: "#FFFDDE",
+                // lightGreen: "#E7FBBE",
+                // lightPink: "#FFCBCB",
+
+                brightPink: "#FF55BB",
+                softOrange: "#FFD3A3",
+                paleYellow: "#FCFFB2",
+                skyBlue: "#B6EAFA",
+                
+                lightGray: "#F1F1F1",
+                neonGreen: "#D5FF5E",
             },
             fontFamily: {
                 merriweather: ["Merriweather", "serif"],

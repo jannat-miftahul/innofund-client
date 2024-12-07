@@ -176,7 +176,7 @@ const AddCampaign = () => {
 
                     <button
                         type="submit"
-                        className="btn font-bold text-xl bg-warmBrown text-white mt-6 w-full hover:bg-paleGreen"
+                        className="btn font-bold text-xl bg-softOrange mt-6 w-full hover:bg-paleYellow"
                     >
                         Add Campaign
                     </button>
