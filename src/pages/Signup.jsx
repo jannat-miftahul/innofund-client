@@ -1,14 +1,101 @@
-// import { useContext, useState } from "react";
-// import { AuthContext } from "../provider/AuthProvider";
+
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import toast from "react-hot-toast";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { useContext, useState } from "react";
-import { AuthContext } from "../provider/AuthProvider";
+import { useState } from "react";
+
+
+
+
+import { useEffect } from "react";
+import { createContext } from "react";
+import app from "../firebase/firebase.config";
+import { auth, googleProvider } from "../firebase/firebase";
+import { signInWithPopup } from "firebase/auth";
+
+import {
+    createUserWithEmailAndPassword,
+    getAuth,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signOut,
+    updateProfile,
+} from "firebase/auth";
+
+export const AuthContext = createContext();
+const authData = getAuth(app);
+
+
 
 const Signup = () => {
-    const {createNewUser, setUser, updateUserProfile, signInWithGoogle} = useContext(AuthContext) || {};
+
+
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    // console.log(loading, user);
+
+    const createNewUser = async (email, password) => {
+        const result = await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+        setUser(result.user);
+        return result;
+    };
+
+    const userLogin = (email, password) => {
+        setLoading(true);
+        return signInWithEmailAndPassword(authData, email, password);
+    };
+
+    const logOut = () => {
+        setLoading(true);
+        return signOut(authData);
+    };
+
+    const updateUserProfile = async (profile) => {
+        if (auth.currentUser) {
+            await updateProfile(auth.currentUser, profile);
+            setUser({ ...auth.currentUser, ...profile });
+        }
+    };
+
+    const signInWithGoogle = async () => {
+        try {
+            const result = await signInWithPopup(auth, googleProvider);
+            setUser(result.user);
+        } catch (error) {
+            console.error("Google sign-in error:", error);
+        }
+    };
+
+    const authInfo = {
+        user,
+        setUser,
+        createNewUser,
+        logOut,
+        userLogin,
+        loading,
+        updateUserProfile,
+        signInWithGoogle,
+    };
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(authData, (currentUser) => {
+            setUser(currentUser);
+            setLoading(false);
+        });
+        return () => unsubscribe();
+    }, []);
+
+
+
+
+
+
+    // const {createNewUser, setUser, updateUserProfile, signInWithGoogle} = useContext(AuthContext) || {};
     const navigate = useNavigate();
     const [error, setError] = useState({});
     const [showPassword, setShowPassword] = useState(false);
