@@ -21,6 +21,7 @@ const AllCampaigns = () => {
                     {/* head */}
                     <thead>
                         <tr>
+                            <th className="py-2"></th>
                             <th className="py-2">Title</th>
                             <th className="py-2">Type</th>
                             <th className="py-2">Minimum Donation</th>
@@ -33,6 +34,9 @@ const AllCampaigns = () => {
                     <tbody>
                         {campaigns.map((campaign) => (
                             <tr key={campaign.id} className="hover">
+                                <td className="py-2 px-4">
+                                    {campaigns.indexOf(campaign) + 1}
+                                </td>
                                 <td className="py-2 px-4">{campaign.title}</td>
                                 <td className="py-2 px-4">{campaign.type}</td>
                                 <td className="py-2 px-4">

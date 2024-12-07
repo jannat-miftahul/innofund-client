@@ -24,16 +24,24 @@ const routes = createBrowserRouter([
                     {
                         path: "/running-campaigns",
                         element: <RunningCampaigns />,
+                        loader: () => fetch("http://localhost:5000/campaigns"),
                     },
                 ],
             },
             {
                 path: "all-campaigns",
                 element: <AllCampaigns />,
+                loader: () => fetch("http://localhost:5000/campaigns"),
             },
             {
                 path: "/add-campaign",
                 element: <AddCampaign />,
+            },
+            {
+                path: "/campaigns/:id",
+                element: <CampaignDetails />,
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/campaigns/${params.id}`),
             },
             {
                 path: "/my-campaigns",

@@ -98,7 +98,7 @@ const AddCampaign = () => {
                                 <option value="startup">Startup</option>
                                 <option value="business">Business</option>
                                 <option value="creative ideas">
-                                    Creative Ideas
+                                    Innovative Ideas
                                 </option>
                             </select>
                         </div>
