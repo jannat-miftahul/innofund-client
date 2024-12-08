@@ -7,7 +7,7 @@ const MyDonations = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/donations?email=${user.email}`)
+            fetch(`https://innofund-server.vercel.app/donations?email=${user.email}`)
                 .then((res) => res.json())
                 .then((data) => setDonations(data));
         }

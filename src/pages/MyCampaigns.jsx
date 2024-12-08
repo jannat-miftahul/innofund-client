@@ -10,7 +10,7 @@ const MyCampaigns = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/campaigns?email=${user.email}`)
+            fetch(`https://innofund-server.vercel.app/campaigns?email=${user.email}`)
                 .then((res) => res.json())
                 .then((data) => setCampaigns(data));
         }
@@ -26,7 +26,7 @@ const MyCampaigns = () => {
             cancelButtonText: "No, cancel!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/campaigns/${id}`, {
+                fetch(`https://innofund-server.vercel.app/campaigns/${id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())

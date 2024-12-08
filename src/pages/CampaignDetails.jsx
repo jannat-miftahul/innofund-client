@@ -30,7 +30,7 @@ const CampaignDetails = () => {
             userEmail: user?.email,
             userName: user?.displayName,
         };
-        fetch("http://localhost:5000/donated", {
+        fetch("https://innofund-server.vercel.app/donated", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
