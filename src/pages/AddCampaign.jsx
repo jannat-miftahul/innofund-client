@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
 
 const AddCampaign = () => {
+    const { user } = useContext(AuthContext);
+
     const handleAddCampaign = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -12,8 +16,8 @@ const AddCampaign = () => {
             description: form.description.value,
             minDonation: form.minDonation.value,
             deadline: form.deadline.value,
-            email: form.email.value,
-            username: form.username.value,
+            email: user?.email || "anonymous@example.com",
+            username: user?.displayName || "Anonymous",
         };
         // console.log(campaign);
 
@@ -153,7 +157,7 @@ const AddCampaign = () => {
                             <input
                                 type="email"
                                 name="email"
-                                // value={user.email}
+                                value={user?.email || ""}
                                 className="input input-bordered w-full bg-gray-100"
                                 readOnly
                             />
@@ -167,7 +171,7 @@ const AddCampaign = () => {
                             <input
                                 type="text"
                                 name="username"
-                                // value={user.name}
+                                value={user?.displayName || ""}
                                 className="input input-bordered w-full bg-gray-100"
                                 readOnly
                             />
