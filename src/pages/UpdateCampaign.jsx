@@ -10,6 +10,8 @@ const UpdateCampaign = () => {
     const { _id, image, title, type, description, minDonation, deadline } =
         campaign || {};
 
+    // console.log(campaign);
+
     const handleUpdateCampaign = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -27,7 +29,7 @@ const UpdateCampaign = () => {
         // console.log(campaign);
 
         // send a PUT request to update the Campaign
-        fetch(`http://localhost:5000/campaigns${_id}`, {
+        fetch(`http://localhost:5000/campaigns/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

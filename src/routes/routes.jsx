@@ -39,6 +39,8 @@ const routes = createBrowserRouter([
             {
                 path: "/updateCampaign/:id",
                 element: <UpdateCampaign />,
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/campaigns/${params.id}`),
             },
             {
                 path: "/myCampaigns",
