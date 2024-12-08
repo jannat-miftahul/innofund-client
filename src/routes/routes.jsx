@@ -53,11 +53,20 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/myCampaigns",
-                element: <MyCampaigns />,
+                element: (
+                    <SecuredRoutes>
+                        <MyCampaigns />
+                    </SecuredRoutes>
+                ),
             },
             {
                 path: "/myDonations",
-                element: <MyDonations />,
+                element: (
+                    <SecuredRoutes>
+                        <MyDonations />
+                    </SecuredRoutes>
+                ),
+                loader: () => fetch("http://localhost:5000/campaigns"),
             },
         ],
     },

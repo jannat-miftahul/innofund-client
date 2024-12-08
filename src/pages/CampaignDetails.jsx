@@ -1,7 +1,11 @@
+import { useContext } from "react";
+import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const CampaignDetails = () => {
     const campaign = useLoaderData();
+    const { user } = useContext(AuthContext);
     const {
         title,
         type,
@@ -13,6 +17,37 @@ const CampaignDetails = () => {
         image,
     } = campaign || {};
 
+    const handleDonate = () => {
+        const donation = {
+            campaignId: campaign._id,
+            title,
+            type,
+            description,
+            minDonation,
+            deadline,
+            campaignEmail: email,
+            campaignUsername: username,
+            userEmail: user?.email,
+            userName: user?.displayName,
+        };
+        fetch("http://localhost:5000/donated", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(donation),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.insertedId) {
+                    toast.success("Donation Successful!");
+                }
+            })
+            .catch((error) => {
+                console.error("Error donating:", error);
+                toast.error("Failed to donate. Please try again later.");
+            });
+    };
     return (
         <div className="container mx-auto mt-10">
             <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -40,7 +75,12 @@ const CampaignDetails = () => {
                 <p className="text-lg mb-4">
                     <strong>Username:</strong> {username}
                 </p>
-                <button className="btn bg-warmBrown mt-4">Donate</button>
+                <button
+                    onClick={handleDonate}
+                    className="btn btn-outline btn-secondary mt-4"
+                >
+                    Donate
+                </button>
             </div>
         </div>
     );
