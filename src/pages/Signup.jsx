@@ -14,7 +14,7 @@ const Signup = () => {
 
     const handleSignup = (e) => {
         e.preventDefault();
-        console.log("Registering...");
+        // console.log("Registering...");
         // get the form data
         const formData = new FormData(e.target);
 
@@ -41,6 +41,7 @@ const Signup = () => {
                 setUser(user);
                 updateUserProfile({ displayName: name, photoURL: photo })
                     .then(() => {
+                        toast.success("User created successfully");
                         navigate("/");
                     })
                     .catch((err) => {
@@ -56,6 +57,7 @@ const Signup = () => {
                 toast.error(errorMessage);
             });
 
+            // 
         createNewUser(email, password)
             .then((result) => {
                 // console.log(result);
@@ -74,7 +76,7 @@ const Signup = () => {
                     .then((data) => {
                         console.log("user created to db", data);
                         if (data.insertedId) {
-                            alert("User created successfully");
+                            console.log("User created successfully");
                         }
                     });
             })
@@ -86,6 +88,7 @@ const Signup = () => {
     const handleGoogleSignIn = async () => {
         try {
             await signInWithGoogle();
+            toast.success("Logged in successfully");
             navigate("/");
         } catch (error) {
             setError({ ...error, general: error.message });

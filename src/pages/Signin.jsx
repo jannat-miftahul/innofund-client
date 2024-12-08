@@ -12,7 +12,7 @@ const Signin = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSignin = (e) => {
         e.preventDefault();
         // console.log("Logging in...");
         // get the form data
@@ -24,11 +24,34 @@ const Signin = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
+                toast.success("Logged in successfully");
                 navigate(location?.state ? location.state : "/");
             })
             .catch((err) => {
                 setError({ ...error, login: err.code });
                 toast.error(err.message);
+            });
+
+        userLogin(email, password)
+            .then((result) => {
+                // update last login time
+                const lastSigninTime = result?.user?.metadata?.lastSignInTime;
+                const loginInfo = { email, lastSigninTime };
+
+                fetch(`http://localhost:5000/users`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(loginInfo),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log("user login info updated", data);
+                    });
+            })
+            .catch((error) => {
+                console.log(error);
             });
     };
 
@@ -77,7 +100,7 @@ const Signin = () => {
     return (
         <div className="flex justify-center items-center bg-lightGray py-10">
             <div className="card bg-white/45 w-full max-w-lg shrink-0 border border-darkBrown rounded-md p-10">
-                <form onSubmit={handleSubmit} className="card-body">
+                <form onSubmit={handleSignin} className="card-body">
                     <div className="form-control">
                         <h3 className="text-xl font-semibold text-center pb-4">
                             Sign In to your account
