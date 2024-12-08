@@ -11,6 +11,7 @@ import MyDonations from "../pages/MyDonations";
 import AllCampaigns from "../pages/AllCampaigns";
 import CampaignDetails from "../pages/CampaignDetails";
 import UpdateCampaign from "../pages/UpdateCampaign";
+import SecuredRoutes from "./SecuredRoutes";
 
 const routes = createBrowserRouter([
     {
@@ -32,13 +33,21 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/campaigns/:id",
-                element: <CampaignDetails />,
+                element: (
+                    <SecuredRoutes>
+                        <CampaignDetails />
+                    </SecuredRoutes>
+                ),
                 loader: ({ params }) =>
                     fetch(`http://localhost:5000/campaigns/${params.id}`),
             },
             {
                 path: "/updateCampaign/:id",
-                element: <UpdateCampaign />,
+                element: (
+                    <SecuredRoutes>
+                        <UpdateCampaign />
+                    </SecuredRoutes>
+                ),
                 loader: ({ params }) =>
                     fetch(`http://localhost:5000/campaigns/${params.id}`),
             },
