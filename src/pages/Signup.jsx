@@ -33,7 +33,7 @@ const Signup = () => {
             });
             return;
         }
-        console.log({ name, photo, email, password });
+        // console.log({ name, photo, email, password });
 
         createNewUser(email, password)
             .then((result) => {
@@ -57,7 +57,7 @@ const Signup = () => {
                 toast.error(errorMessage);
             });
 
-            // 
+        //
         createNewUser(email, password)
             .then((result) => {
                 // console.log(result);
@@ -77,6 +77,11 @@ const Signup = () => {
                         console.log("user created to db", data);
                         if (data.insertedId) {
                             console.log("User created successfully");
+                            setUser(result.user);
+                            updateUserProfile({
+                                displayName: name,
+                                photoURL: photo,
+                            });
                         }
                     });
             })
@@ -87,9 +92,33 @@ const Signup = () => {
 
     const handleGoogleSignIn = async () => {
         try {
-            await signInWithGoogle();
-            toast.success("Logged in successfully");
-            navigate("/");
+            const result = await signInWithGoogle();
+            const createdAt = result?.user?.metadata?.creationTime;
+            const newUser = {
+                name: result.user.displayName,
+                email: result.user.email,
+                photo: result.user.photoURL,
+                createdAt,
+            };
+
+            // Save new user info to database
+            fetch("http://localhost:5000/users", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(newUser),
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log("user created to db", data);
+                    if (data.insertedId) {
+                        // console.log("User created successfully");
+                        setUser(result.user);
+                        toast.success("Logged in successfully");
+                        navigate("/");
+                    }
+                });
         } catch (error) {
             setError({ ...error, general: error.message });
             toast.error(error.message);

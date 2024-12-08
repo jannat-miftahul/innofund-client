@@ -11,6 +11,7 @@ import { createContext, useEffect, useState } from "react";
 import { auth, googleProvider } from "../firebase/firebase";
 import PropTypes from "prop-types";
 import app from "../firebase/firebase.config";
+import toast, { Toaster } from "react-hot-toast";
 
 export const AuthContext = createContext();
 const authData = getAuth(app);
@@ -37,6 +38,7 @@ const AuthProvider = ({ children }) => {
 
     const logOut = () => {
         setLoading(true);
+        toast.success("Logged out successfully");
         return signOut(authData);
     };
 
@@ -76,7 +78,10 @@ const AuthProvider = ({ children }) => {
     }, []);
 
     return (
-        <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+        <AuthContext.Provider value={authInfo}>
+            {children}
+            <Toaster />
+        </AuthContext.Provider>
     );
 };
 

@@ -10,6 +10,7 @@ import MyCampaigns from "../pages/MyCampaigns";
 import MyDonations from "../pages/MyDonations";
 import AllCampaigns from "../pages/AllCampaigns";
 import CampaignDetails from "../pages/CampaignDetails";
+import UpdateCampaign from "../pages/UpdateCampaign";
 
 const routes = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ const routes = createBrowserRouter([
                 element: <CampaignDetails />,
                 loader: ({ params }) =>
                     fetch(`http://localhost:5000/campaigns/${params.id}`),
+            },
+            {
+                path: "/updateCampaign/:id",
+                element: <UpdateCampaign />,
             },
             {
                 path: "/myCampaigns",
