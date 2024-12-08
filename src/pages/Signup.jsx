@@ -12,7 +12,7 @@ const Signup = () => {
     const [error, setError] = useState({});
     const [showPassword, setShowPassword] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSignup = (e) => {
         e.preventDefault();
         console.log("Registering...");
         // get the form data
@@ -55,6 +55,32 @@ const Signup = () => {
                 setError({ ...error, general: errorMessage });
                 toast.error(errorMessage);
             });
+
+        createNewUser(email, password)
+            .then((result) => {
+                // console.log(result);
+                const createdAt = result?.user?.metadata?.creationTime;
+
+                const newUser = { name, email, photo, createdAt };
+                // save new user info to database
+                fetch("http://localhost:5000/users", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(newUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log("user created to db", data);
+                        if (data.insertedId) {
+                            alert("User created successfully");
+                        }
+                    });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
 
     const handleGoogleSignIn = async () => {
@@ -74,7 +100,7 @@ const Signup = () => {
     return (
         <div className="min-h-screen flex justify-center items-start bg-lightGray py-10">
             <div className="card bg-white/45 w-full max-w-lg shrink-0 border border-darkBrown rounded-md p-10">
-                <form onSubmit={handleSubmit} className="card-body">
+                <form onSubmit={handleSignup} className="card-body">
                     <div className="form-control">
                         <h3 className="text-xl font-semibold text-center pb-4">
                             Register for an account
