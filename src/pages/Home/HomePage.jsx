@@ -1,5 +1,5 @@
-import Banner from "../components/Banner";
-import RunningCampaigns from "../components/RunningCampaigns";
+import Banner from "../../components/Banner";
+import RunningCampaigns from "./RunningCampaigns";
 
 const HomePage = () => {
     return (

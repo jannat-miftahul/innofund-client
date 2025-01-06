@@ -1,15 +1,22 @@
 import { useContext } from "react";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AuthContext } from "../provider/AuthProvider";
+import { AuthContext } from "../../provider/AuthProvider";
 
-const AddCampaign = () => {
+const UpdateCampaign = () => {
+    const campaign = useLoaderData();
     const { user } = useContext(AuthContext);
 
-    const handleAddCampaign = (event) => {
+    const { _id, image, title, type, description, minDonation, deadline } =
+        campaign || {};
+
+    // console.log(campaign);
+
+    const handleUpdateCampaign = (event) => {
         event.preventDefault();
         const form = event.target;
 
-        const campaign = {
+        const updatedCampaign = {
             image: form.image.value,
             title: form.title.value,
             type: form.type.value,
@@ -21,26 +28,24 @@ const AddCampaign = () => {
         };
         // console.log(campaign);
 
-        // Add campaign to the database
-        fetch("https://innofund-server.vercel.app/campaigns", {
-            method: "POST",
+        // send a PUT request to update the Campaign
+        fetch(`https://innofund-server.vercel.app/campaigns/${_id}`, {
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(campaign),
+            body: JSON.stringify(updatedCampaign),
         })
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);
-                if (data.insertedId) {
-                    // console.log("campaign added successfully");
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: "Success!",
-                        text: "Campaign added successfully!",
+                        text: "Campaign Updated successfully!",
                         icon: "success",
                         confirmButtonText: "Close",
                     });
-                    form.reset();
                 }
             });
     };
@@ -49,12 +54,12 @@ const AddCampaign = () => {
         <div className="min-h-screen bg-white flex items-center justify-center px-4 py-20">
             <div className="max-w-screen-lg w-full bg-background shadow-lg rounded-lg p-16">
                 <h1 className="text-4xl font-bold text-center mb-4">
-                    Add New Campaign
+                    Update Campaign
                 </h1>
                 <p className="text-center text-gray-500 mb-8">
-                    Fill in the form below to add a new campaign
+                    Fill in the form below to Update campaign
                 </p>
-                <form onSubmit={handleAddCampaign}>
+                <form onSubmit={handleUpdateCampaign}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {/* Image URL */}
                         <div className="form-control">
@@ -64,6 +69,7 @@ const AddCampaign = () => {
                             <input
                                 type="text"
                                 name="image"
+                                defaultValue={image}
                                 placeholder="Enter image URL"
                                 className="input input-bordered w-full"
                                 required
@@ -79,6 +85,7 @@ const AddCampaign = () => {
                             <input
                                 type="text"
                                 name="title"
+                                defaultValue={title}
                                 placeholder="Enter campaign title"
                                 className="input input-bordered w-full"
                                 required
@@ -93,6 +100,7 @@ const AddCampaign = () => {
                             </label>
                             <select
                                 name="type"
+                                defaultValue={type}
                                 className="w-full border rounded-lg p-3"
                                 required
                             >
@@ -114,6 +122,7 @@ const AddCampaign = () => {
                             </label>
                             <textarea
                                 name="description"
+                                defaultValue={description}
                                 placeholder="Enter campaign description"
                                 className="textarea textarea-bordered w-full"
                                 required
@@ -130,6 +139,7 @@ const AddCampaign = () => {
                             <input
                                 type="number"
                                 name="minDonation"
+                                defaultValue={minDonation}
                                 placeholder="Enter minimum donation amount"
                                 className="input input-bordered w-full"
                                 required
@@ -144,6 +154,7 @@ const AddCampaign = () => {
                             <input
                                 type="date"
                                 name="deadline"
+                                defaultValue={deadline}
                                 className="input input-bordered w-full"
                                 required
                             />
@@ -182,7 +193,7 @@ const AddCampaign = () => {
                         type="submit"
                         className="btn font-bold text-xl bg-softOrange mt-6 w-full hover:bg-paleYellow"
                     >
-                        Add Campaign
+                        Update Campaign
                     </button>
                 </form>
             </div>
@@ -190,4 +201,4 @@ const AddCampaign = () => {
     );
 };
 
-export default AddCampaign;
+export default UpdateCampaign;

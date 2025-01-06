@@ -1,17 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomeLayout from "../layouts/HomeLayout";
 import AuthLayout from "../layouts/AuthLayout";
-import Signin from "../pages/Signin";
-import Signup from "../pages/Signup";
-import Page404 from "../pages/Page404";
-import HomePage from "../pages/HomePage";
-import AddCampaign from "../pages/AddCampaign";
-import MyCampaigns from "../pages/MyCampaigns";
-import MyDonations from "../pages/MyDonations";
-import AllCampaigns from "../pages/AllCampaigns";
-import CampaignDetails from "../pages/CampaignDetails";
-import UpdateCampaign from "../pages/UpdateCampaign";
+import HomePage from "../pages/Home/HomePage";
+import AllCampaigns from "../pages/Campaign/AllCampaigns";
+import AddCampaign from "../pages/Campaign/AddCampaign";
 import SecuredRoutes from "./SecuredRoutes";
+import CampaignDetails from "../pages/Campaign/CampaignDetails";
+import UpdateCampaign from "../pages/Campaign/UpdateCampaign";
+import MyCampaigns from "../pages/Campaign/MyCampaigns";
+import MyDonations from "../pages/Campaign/MyDonations";
+import Signin from "../pages/Auth/Signin";
+import Signup from "../pages/Auth/Signup";
+import Page404 from "../pages/Page404";
+
 
 const routes = createBrowserRouter([
     {

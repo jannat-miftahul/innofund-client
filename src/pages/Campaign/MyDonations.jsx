@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { AuthContext } from "../provider/AuthProvider";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const MyDonations = () => {
     const { user } = useContext(AuthContext) || {};

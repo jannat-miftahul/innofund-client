@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 
 const HomeLayout = () => {
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="max-w-screen-2xl mx-auto flex flex-col min-h-screen">
             <Toaster />
 
             {/* Navbar */}

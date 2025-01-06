@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
-import { AuthContext } from "../provider/AuthProvider";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const CampaignDetails = () => {
     const campaign = useLoaderData();

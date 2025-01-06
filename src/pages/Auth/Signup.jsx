@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import toast from "react-hot-toast";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useContext, useState } from "react";
-import { AuthContext } from "../provider/AuthProvider";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Signup = () => {
     const { createNewUser, setUser, updateUserProfile, signInWithGoogle } =

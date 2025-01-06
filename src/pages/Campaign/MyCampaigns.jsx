@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
-import { AuthContext } from "../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const MyCampaigns = () => {
     const { user } = useContext(AuthContext) || {};

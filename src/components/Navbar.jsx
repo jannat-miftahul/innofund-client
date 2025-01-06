@@ -31,68 +31,8 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow font-medium"
                     >
-                        <li>
-                            <NavLink
-                                to="/"
-                                className={({ isActive }) =>
-                                    `tab ${isActive ? "text-brightPink" : ""}`
-                                }
-                            >
-                                Home
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/allCampaigns"
-                                className={({ isActive }) =>
-                                    `tab ${isActive ? "text-brightPink" : ""}`
-                                }
-                            >
-                                All Campaigns
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/addCampaign"
-                                className={({ isActive }) =>
-                                    `tab ${isActive ? "text-brightPink" : ""}`
-                                }
-                            >
-                                Add New Campaign
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/myCampaigns"
-                                className={({ isActive }) =>
-                                    `tab ${isActive ? "text-brightPink" : ""}`
-                                }
-                            >
-                                My Campaigns
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/myDonations"
-                                className={({ isActive }) =>
-                                    `tab ${isActive ? "text-brightPink" : ""}`
-                                }
-                            >
-                                My Donations
-                            </NavLink>
-                        </li>
-                    </ul>
-                </div>
-                <NavLink to="/" className="text-2xl text-brightPink font-bold">
-                    InnoFund
-                </NavLink>
-            </div>
-
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    <li>
                         <NavLink
                             to="/"
                             className={({ isActive }) =>
@@ -101,8 +41,6 @@ const Navbar = () => {
                         >
                             Home
                         </NavLink>
-                    </li>
-                    <li>
                         <NavLink
                             to="/allCampaigns"
                             className={({ isActive }) =>
@@ -111,8 +49,6 @@ const Navbar = () => {
                         >
                             All Campaigns
                         </NavLink>
-                    </li>
-                    <li>
                         <NavLink
                             to="/addCampaign"
                             className={({ isActive }) =>
@@ -121,8 +57,6 @@ const Navbar = () => {
                         >
                             Add New Campaign
                         </NavLink>
-                    </li>
-                    <li>
                         <NavLink
                             to="/myCampaigns"
                             className={({ isActive }) =>
@@ -131,8 +65,6 @@ const Navbar = () => {
                         >
                             My Campaigns
                         </NavLink>
-                    </li>
-                    <li>
                         <NavLink
                             to="/myDonations"
                             className={({ isActive }) =>
@@ -141,7 +73,55 @@ const Navbar = () => {
                         >
                             My Donations
                         </NavLink>
-                    </li>
+                    </ul>
+                </div>
+                <NavLink to="/" className="text-2xl text-brightPink font-bold">
+                    InnoFund
+                </NavLink>
+            </div>
+
+            <div className="navbar-center hidden lg:flex">
+                <ul className="menu menu-horizontal px-1 font-medium">
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                            `tab ${isActive ? "text-brightPink" : ""}`
+                        }
+                    >
+                        Home
+                    </NavLink>
+                    <NavLink
+                        to="/allCampaigns"
+                        className={({ isActive }) =>
+                            `tab ${isActive ? "text-brightPink" : ""}`
+                        }
+                    >
+                        All Campaigns
+                    </NavLink>
+                    <NavLink
+                        to="/addCampaign"
+                        className={({ isActive }) =>
+                            `tab ${isActive ? "text-brightPink" : ""}`
+                        }
+                    >
+                        Add New Campaign
+                    </NavLink>
+                    <NavLink
+                        to="/myCampaigns"
+                        className={({ isActive }) =>
+                            `tab ${isActive ? "text-brightPink" : ""}`
+                        }
+                    >
+                        My Campaigns
+                    </NavLink>
+                    <NavLink
+                        to="/myDonations"
+                        className={({ isActive }) =>
+                            `tab ${isActive ? "text-brightPink" : ""}`
+                        }
+                    >
+                        My Donations
+                    </NavLink>
                 </ul>
             </div>
 
