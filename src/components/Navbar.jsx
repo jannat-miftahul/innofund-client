@@ -24,30 +24,37 @@ const Navbar = () => {
             >
                 All Campaigns
             </NavLink>
-            <NavLink
-                to="/add-campaign"
-                className={({ isActive }) =>
-                    `tab ${isActive ? "text-brightPink" : ""}`
-                }
-            >
-                Add New Campaign
-            </NavLink>
-            <NavLink
-                to="/my-campaigns"
-                className={({ isActive }) =>
-                    `tab ${isActive ? "text-brightPink" : ""}`
-                }
-            >
-                My Campaigns
-            </NavLink>
-            <NavLink
-                to="/my-donations"
-                className={({ isActive }) =>
-                    `tab ${isActive ? "text-brightPink" : ""}`
-                }
-            >
-                My Donations
-            </NavLink>
+
+            {user && user?.email ? (
+                <NavLink
+                    to="/add-campaign"
+                    className={({ isActive }) =>
+                        `tab ${isActive ? "text-brightPink" : ""}`
+                    }
+                >
+                    Add New Campaign
+                </NavLink>
+            ) : null}
+            {user && user?.email ? (
+                <NavLink
+                    to="/my-campaigns"
+                    className={({ isActive }) =>
+                        `tab ${isActive ? "text-brightPink" : ""}`
+                    }
+                >
+                    My Campaigns
+                </NavLink>
+            ) : null}
+            {user && user?.email ? (
+                <NavLink
+                    to="/my-donations"
+                    className={({ isActive }) =>
+                        `tab ${isActive ? "text-brightPink" : ""}`
+                    }
+                >
+                    My Donations
+                </NavLink>
+            ) : null}
         </>
     );
 
