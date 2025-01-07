@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import signupImg from "../../assets/undraw_welcome-cats_tw36.svg"
 
 const Signup = () => {
     const { createNewUser, setUser, updateUserProfile, signInWithGoogle } =
@@ -130,8 +131,13 @@ const Signup = () => {
     };
 
     return (
-        <div className="min-h-screen flex justify-center items-start bg-lightGray py-10">
-            <div className="card bg-white/45 w-full max-w-lg shrink-0 border border-darkBrown rounded-md p-10">
+        <div className="max-w-screen-xl mx-auto min-h-screen flex flex-col items-center lg:flex-row gap-10 py-10">
+            <div className="flex-1">
+                <img className="w-full h-full" src={signupImg} alt="" />
+            </div>
+
+
+            <div className="flex-1 first-line:card bg-white/45 w-full max-w-lg shrink-0 border border-darkBrown rounded-md p-10">
                 <form onSubmit={handleSignup} className="card-body">
                     <div className="form-control">
                         <h3 className="text-xl font-semibold text-center pb-4">

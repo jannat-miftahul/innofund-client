@@ -24,7 +24,7 @@ const AllCampaigns = () => {
 
                 <div className="space-x-2">
                     <label className="text-lg text-brightPink font-semibold uppercase">
-                        sort by:
+                        sort by donation:
                     </label>
                     <select
                         value={sortOrder}

@@ -1,12 +1,58 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { AiOutlineLogin } from "react-icons/ai";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
 
+    const links = (
+        <>
+            <NavLink
+                to="/"
+                className={({ isActive }) =>
+                    `tab ${isActive ? "text-brightPink" : ""}`
+                }
+            >
+                Home
+            </NavLink>
+            <NavLink
+                to="/all-campaigns"
+                className={({ isActive }) =>
+                    `tab ${isActive ? "text-brightPink" : ""}`
+                }
+            >
+                All Campaigns
+            </NavLink>
+            <NavLink
+                to="/add-campaign"
+                className={({ isActive }) =>
+                    `tab ${isActive ? "text-brightPink" : ""}`
+                }
+            >
+                Add New Campaign
+            </NavLink>
+            <NavLink
+                to="/my-campaigns"
+                className={({ isActive }) =>
+                    `tab ${isActive ? "text-brightPink" : ""}`
+                }
+            >
+                My Campaigns
+            </NavLink>
+            <NavLink
+                to="/my-donations"
+                className={({ isActive }) =>
+                    `tab ${isActive ? "text-brightPink" : ""}`
+                }
+            >
+                My Donations
+            </NavLink>
+        </>
+    );
+
     return (
-        <div className="bg-softOrange/35 backdrop-blur-md bg-opacity-60 sticky top-0 z-50">
+        <div className="bg-softOrange/35 backdrop-blur-md bg-opacity-60 sticky top-0 z-50 py-2">
             <div className="navbar max-w-screen-xl mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -34,46 +80,7 @@ const Navbar = () => {
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow font-medium"
                         >
-                            <NavLink
-                                to="/"
-                                className={({ isActive }) =>
-                                    `tab ${isActive ? "text-brightPink" : ""}`
-                                }
-                            >
-                                Home
-                            </NavLink>
-                            <NavLink
-                                to="/all-campaigns"
-                                className={({ isActive }) =>
-                                    `tab ${isActive ? "text-brightPink" : ""}`
-                                }
-                            >
-                                All Campaigns
-                            </NavLink>
-                            <NavLink
-                                to="/add-campaign"
-                                className={({ isActive }) =>
-                                    `tab ${isActive ? "text-brightPink" : ""}`
-                                }
-                            >
-                                Add New Campaign
-                            </NavLink>
-                            <NavLink
-                                to="/my-campaigns"
-                                className={({ isActive }) =>
-                                    `tab ${isActive ? "text-brightPink" : ""}`
-                                }
-                            >
-                                My Campaigns
-                            </NavLink>
-                            <NavLink
-                                to="/my-donations"
-                                className={({ isActive }) =>
-                                    `tab ${isActive ? "text-brightPink" : ""}`
-                                }
-                            >
-                                My Donations
-                            </NavLink>
+                            {links}
                         </ul>
                     </div>
                     <NavLink
@@ -86,46 +93,7 @@ const Navbar = () => {
 
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 font-medium">
-                        <NavLink
-                            to="/"
-                            className={({ isActive }) =>
-                                `tab ${isActive ? "text-brightPink" : ""}`
-                            }
-                        >
-                            Home
-                        </NavLink>
-                        <NavLink
-                            to="/all-campaigns"
-                            className={({ isActive }) =>
-                                `tab ${isActive ? "text-brightPink" : ""}`
-                            }
-                        >
-                            All Campaigns
-                        </NavLink>
-                        <NavLink
-                            to="/add-campaign"
-                            className={({ isActive }) =>
-                                `tab ${isActive ? "text-brightPink" : ""}`
-                            }
-                        >
-                            Add New Campaign
-                        </NavLink>
-                        <NavLink
-                            to="/my-campaigns"
-                            className={({ isActive }) =>
-                                `tab ${isActive ? "text-brightPink" : ""}`
-                            }
-                        >
-                            My Campaigns
-                        </NavLink>
-                        <NavLink
-                            to="/my-donations"
-                            className={({ isActive }) =>
-                                `tab ${isActive ? "text-brightPink" : ""}`
-                            }
-                        >
-                            My Donations
-                        </NavLink>
+                        {links}
                     </ul>
                 </div>
 
@@ -152,6 +120,7 @@ const Navbar = () => {
                                     className="btn bg-neonGreen"
                                 >
                                     Log out
+                                    <AiOutlineLogin />
                                 </Link>
                             </div>
                         </div>
@@ -162,12 +131,14 @@ const Navbar = () => {
                                 className="btn bg-neonGreen"
                             >
                                 Sign in
+                                <AiOutlineLogin />
                             </Link>
                             <Link
                                 to="/auth/signup"
                                 className="btn bg-neonGreen"
                             >
                                 Sign up
+                                <AiOutlineLogin />
                             </Link>
                         </div>
                     )}

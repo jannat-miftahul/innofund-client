@@ -16,7 +16,7 @@ export default {
                 softOrange: "#FFD3A3",
                 paleYellow: "#FCFFB2",
                 skyBlue: "#B6EAFA",
-                
+
                 lightGray: "#F1F1F1",
                 neonGreen: "#D5FF5E",
             },

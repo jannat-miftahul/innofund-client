@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../provider/AuthProvider";
+import signinImg from "../../assets/undraw_access-account_idy0.svg"
 
 const Signin = () => {
     const { userLogin, setUser, signInWithGoogle } = useContext(AuthContext);
@@ -98,7 +99,11 @@ const Signin = () => {
     // };
 
     return (
-        <div className="flex justify-center items-center bg-lightGray py-10">
+        <div className="max-w-screen-xl mx-auto min-h-screen flex flex-col items-center lg:flex-row gap-10 py-10">
+            <div className="flex-1">
+                <img className="w-full h-full" src={signinImg} alt="" />
+            </div>
+
             <div className="card bg-white/45 w-full max-w-lg shrink-0 border border-darkBrown rounded-md p-10">
                 <form onSubmit={handleSignin} className="card-body">
                     <div className="form-control">
