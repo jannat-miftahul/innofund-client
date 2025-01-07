@@ -8,7 +8,7 @@ const AllCampaigns = () => {
     const [sortOrder, setSortOrder] = useState("desc");
 
     useEffect(() => {
-        fetch(`http://localhost:5000/campaigns?sort=${sortOrder}`)
+        fetch(`https://innofund-server.vercel.app/campaigns?sort=${sortOrder}`)
             .then((res) => res.json())
             .then((data) => setCampaigns(data));
     }, [sortOrder]);

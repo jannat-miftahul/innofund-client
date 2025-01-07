@@ -11,9 +11,7 @@ const MyCampaigns = () => {
     console.log(campaigns);
 
     useEffect(() => {
-        fetch(
-            `http://localhost:5000/campaigns?email=${user.email}`
-        )
+        fetch(`https://innofund-server.vercel.app/campaigns?email=${user.email}`)
             .then((res) => res.json())
             .then((data) => setCampaigns(data));
     }, [user.email]);
@@ -28,7 +26,7 @@ const MyCampaigns = () => {
             cancelButtonText: "No, cancel!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/campaigns/${id}`, {
+                fetch(`https://innofund-server.vercel.app/campaigns/${id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())
@@ -84,10 +82,7 @@ const MyCampaigns = () => {
                                         Update
                                     </Link>
                                     <button
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            handleDelete(campaign._id);
-                                        }}
+                                        onClick={() => handleDelete(campaign._id)}
                                         className="btn bg-softOrange"
                                     >
                                         <AiOutlineDelete size={24} />

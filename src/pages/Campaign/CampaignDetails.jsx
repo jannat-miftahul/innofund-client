@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import toast from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const CampaignDetails = () => {
     const campaign = useLoaderData();
     const { user } = useContext(AuthContext);
+    console.log(user.displayName, user.email);
+    const navigate = useNavigate();
     const {
         title,
         type,
@@ -21,16 +23,15 @@ const CampaignDetails = () => {
         const donation = {
             campaignId: campaign._id,
             title,
+            image,
             type,
             description,
             minDonation,
             deadline,
-            campaignEmail: email,
-            campaignUsername: username,
-            userEmail: user?.email,
-            userName: user?.displayName,
+            donorEmail: user?.email,
+            donorName: user?.displayName,
         };
-        fetch("http://localhost:5000/donated", {
+        fetch("https://innofund-server.vercel.app/donations", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -41,6 +42,7 @@ const CampaignDetails = () => {
             .then((data) => {
                 if (data.insertedId) {
                     toast.success("Donation Successful!");
+                    navigate("/my-donations");
                 }
             })
             .catch((error) => {
@@ -49,39 +51,37 @@ const CampaignDetails = () => {
             });
     };
     return (
-        <div className="container mx-auto mt-10">
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h1 className="text-3xl font-bold mb-6">{title}</h1>
-                <img
-                    src={image}
-                    alt={title}
-                    className="w-full h-64 object-cover mb-6 rounded-lg"
-                />
-                <p className="text-lg mb-4">
-                    <strong>Type:</strong> {type}
-                </p>
-                <p className="text-lg mb-4">
-                    <strong>Description:</strong> {description}
-                </p>
-                <p className="text-lg mb-4">
-                    <strong>Minimum Donation:</strong> {minDonation}
-                </p>
-                <p className="text-lg mb-4">
-                    <strong>Deadline:</strong> {deadline}
-                </p>
-                <p className="text-lg mb-4">
-                    <strong>Email:</strong> {email}
-                </p>
-                <p className="text-lg mb-4">
-                    <strong>Username:</strong> {username}
-                </p>
-                <button
-                    onClick={handleDonate}
-                    className="btn btn-outline btn-secondary mt-4"
-                >
-                    Donate
-                </button>
-            </div>
+        <div className="max-w-screen-xl mx-auto py-12">
+            <h1 className="text-3xl font-bold mb-6">{title}</h1>
+            <img
+                src={image}
+                alt={title}
+                className="w-full h-64 object-cover mb-6 rounded-lg"
+            />
+            <p className="text-lg mb-4">
+                <strong>Type:</strong> {type}
+            </p>
+            <p className="text-lg mb-4">
+                <strong>Description:</strong> {description}
+            </p>
+            <p className="text-lg mb-4">
+                <strong>Minimum Donation:</strong> {minDonation}
+            </p>
+            <p className="text-lg mb-4">
+                <strong>Deadline:</strong> {deadline}
+            </p>
+            {/* <p className="text-lg mb-4">
+                <strong>Email:</strong> {email}
+            </p>
+            <p className="text-lg mb-4">
+                <strong>Username:</strong> {username}
+            </p> */}
+            <button
+                onClick={handleDonate}
+                className="btn btn-outline btn-secondary mt-4"
+            >
+                Donate
+            </button>
         </div>
     );
 };

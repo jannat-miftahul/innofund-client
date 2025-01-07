@@ -5,7 +5,7 @@ const RunningCampaigns = () => {
     const [campaigns, setCampaigns] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/running-campaigns")
+        fetch("https://innofund-server.vercel.app/running-campaigns")
             .then((res) => res.json())
             .then((data) => setCampaigns(data));
     }, []);

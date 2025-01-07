@@ -65,7 +65,7 @@ const Signup = () => {
 
                 const newUser = { name, email, photo, createdAt };
                 // save new user info to database
-                fetch("http://localhost:5000/users", {
+                fetch("https://innofund-server.vercel.app/users", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -102,7 +102,7 @@ const Signup = () => {
             };
 
             // Save new user info to database
-            fetch("http://localhost:5000/users", {
+            fetch("https://innofund-server.vercel.app/users", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
