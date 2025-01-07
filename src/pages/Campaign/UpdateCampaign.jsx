@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const UpdateCampaign = () => {
     const campaign = useLoaderData();
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const { _id, image, title, type, description, minDonation, deadline } =
         campaign || {};
@@ -46,6 +47,7 @@ const UpdateCampaign = () => {
                         icon: "success",
                         confirmButtonText: "Close",
                     });
+                    navigate("/my-campaigns");
                 }
             });
     };
@@ -191,7 +193,7 @@ const UpdateCampaign = () => {
 
                     <button
                         type="submit"
-                        className="btn font-bold text-xl bg-softOrange mt-6 w-full hover:bg-paleYellow"
+                        className="btn font-bold text-xl bg-softOrange mt-6 w-full hover:bg-softOrange"
                     >
                         Update Campaign
                     </button>

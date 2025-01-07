@@ -12,7 +12,7 @@ import { Navigation } from "swiper/modules";
 
 const Banner = () => {
     return (
-        <div>
+        <div className="">
             <Swiper
                 navigation={true}
                 modules={[Navigation]}

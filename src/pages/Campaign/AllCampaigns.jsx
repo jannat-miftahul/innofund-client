@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { HiOutlineChevronDoubleRight } from "react-icons/hi";
-import { Link } from "react-router-dom";
+// import { HiOutlineChevronDoubleRight } from "react-icons/hi";
+// import { Link } from "react-router-dom";
+import CampaignCard from "../../components/CampaignCard";
 
 const AllCampaigns = () => {
     const [campaigns, setCampaigns] = useState([]);
@@ -12,13 +13,18 @@ const AllCampaigns = () => {
     }, []);
 
     return (
-        <div className="max-w-screen-xl mx-auto mt-10">
+        <div className="max-w-screen-xl mx-auto py-12">
             <h1 className="text-3xl font-bold mb-6">All Campaigns</h1>
 
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {campaigns.map((campaign) => (
+                    <CampaignCard key={campaign._id} campaign={campaign} />
+                ))}
+            </div>
+
             {/* Table */}
-            <div className="overflow-x-auto">
+            {/* <div className="overflow-x-auto">
                 <table className="table">
-                    {/* head */}
                     <thead>
                         <tr>
                             <th className="py-2"></th>
@@ -33,7 +39,7 @@ const AllCampaigns = () => {
                     </thead>
                     <tbody>
                         {campaigns.map((campaign) => (
-                            <tr key={campaign.id} className="hover">
+                            <tr key={campaign._id} className="hover">
                                 <td className="py-2 px-4">
                                     {campaigns.indexOf(campaign) + 1}
                                 </td>
@@ -62,7 +68,7 @@ const AllCampaigns = () => {
                         ))}
                     </tbody>
                 </table>
-            </div>
+            </div> */}
         </div>
     );
 };

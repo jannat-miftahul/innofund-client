@@ -13,7 +13,6 @@ import Signin from "../pages/Auth/Signin";
 import Signup from "../pages/Auth/Signup";
 import Page404 from "../pages/Page404";
 
-
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -24,36 +23,41 @@ const routes = createBrowserRouter([
                 element: <HomePage />,
             },
             {
-                path: "allCampaigns",
+                path: "all-campaigns",
                 element: <AllCampaigns />,
-                loader: () => fetch("https://innofund-server.vercel.app/campaigns"),
+                loader: () =>
+                    fetch("https://innofund-server.vercel.app/campaigns"),
             },
             {
-                path: "/addCampaign",
-                element: <AddCampaign />,
+                path: "/add-campaign",
+                element: (
+                    <SecuredRoutes>
+                        <AddCampaign />
+                    </SecuredRoutes>
+                ),
             },
             {
                 path: "/campaigns/:id",
-                element: (
-                    <SecuredRoutes>
-                        <CampaignDetails />
-                    </SecuredRoutes>
-                ),
+                element: <CampaignDetails />,
                 loader: ({ params }) =>
-                    fetch(`https://innofund-server.vercel.app/campaigns/${params.id}`),
+                    fetch(
+                        `https://innofund-server.vercel.app/campaigns/${params.id}`
+                    ),
             },
             {
-                path: "/updateCampaign/:id",
+                path: "/update-campaign/:id",
                 element: (
                     <SecuredRoutes>
                         <UpdateCampaign />
                     </SecuredRoutes>
                 ),
                 loader: ({ params }) =>
-                    fetch(`https://innofund-server.vercel.app/campaigns/${params.id}`),
+                    fetch(
+                        `https://innofund-server.vercel.app/campaigns/${params.id}`
+                    ),
             },
             {
-                path: "/myCampaigns",
+                path: "/my-campaigns",
                 element: (
                     <SecuredRoutes>
                         <MyCampaigns />
@@ -61,13 +65,14 @@ const routes = createBrowserRouter([
                 ),
             },
             {
-                path: "/myDonations",
+                path: "/my-donations",
                 element: (
                     <SecuredRoutes>
                         <MyDonations />
                     </SecuredRoutes>
                 ),
-                loader: () => fetch("https://innofund-server.vercel.app/campaigns"),
+                loader: () =>
+                    fetch("https://innofund-server.vercel.app/campaigns"),
             },
         ],
     },

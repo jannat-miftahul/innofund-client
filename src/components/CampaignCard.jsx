@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const CampaignCard = ({ campaign }) => {
     return (
-        <div className="bg-white p-6 rounded-lg shadow-lg">
+        <div className="bg-gray-50 p-4 rounded-lg shadow-lg">
             <img
                 src={campaign.image}
                 alt={campaign.title}
@@ -22,7 +22,7 @@ const CampaignCard = ({ campaign }) => {
             <p className="text-gray-700 mb-2">
                 <strong>Deadline:</strong> {campaign.deadline}
             </p>
-            <Link to={`/campaigns/${campaign._id}`} className="btn btn-primary">
+            <Link to={`/campaigns/${campaign._id}`} className="btn bg-neonGreen">
                 See More
             </Link>
         </div>
