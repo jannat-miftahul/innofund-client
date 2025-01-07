@@ -12,6 +12,8 @@ import MyDonations from "../pages/Campaign/MyDonations";
 import Signin from "../pages/Auth/Signin";
 import Signup from "../pages/Auth/Signup";
 import Page404 from "../pages/Page404";
+import About from "../pages/About";
+import Contact from "../pages/Contact";
 
 const routes = createBrowserRouter([
     {
@@ -27,6 +29,14 @@ const routes = createBrowserRouter([
                 element: <AllCampaigns />,
             },
             {
+                path: "about",
+                element: <About />,
+            },
+            {
+                path: "contact",
+                element: <Contact />,
+            },
+            {
                 path: "/add-campaign",
                 element: (
                     <SecuredRoutes>
@@ -38,7 +48,9 @@ const routes = createBrowserRouter([
                 path: "/campaigns/:id",
                 element: <CampaignDetails />,
                 loader: ({ params }) =>
-                    fetch(`https://innofund-server.vercel.app/campaigns/${params.id}`),
+                    fetch(
+                        `https://innofund-server.vercel.app/campaigns/${params.id}`
+                    ),
             },
             {
                 path: "/update-campaign/:id",
@@ -48,7 +60,9 @@ const routes = createBrowserRouter([
                     </SecuredRoutes>
                 ),
                 loader: ({ params }) =>
-                    fetch(`https://innofund-server.vercel.app/campaigns/${params.id}`),
+                    fetch(
+                        `https://innofund-server.vercel.app/campaigns/${params.id}`
+                    ),
             },
             {
                 path: "/my-campaigns",
@@ -65,7 +79,8 @@ const routes = createBrowserRouter([
                         <MyDonations />
                     </SecuredRoutes>
                 ),
-                loader: () => fetch("https://innofund-server.vercel.app/campaigns"),
+                loader: () =>
+                    fetch("https://innofund-server.vercel.app/campaigns"),
             },
         ],
     },

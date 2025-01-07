@@ -24,6 +24,22 @@ const Navbar = () => {
             >
                 All Campaigns
             </NavLink>
+            <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                    `tab ${isActive ? "text-brightPink" : ""}`
+                }
+            >
+                About Us
+            </NavLink>
+            <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                    `tab ${isActive ? "text-brightPink" : ""}`
+                }
+            >
+                Contact
+            </NavLink>
 
             {user && user?.email ? (
                 <NavLink
