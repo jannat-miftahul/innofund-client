@@ -30,7 +30,7 @@ const UpdateCampaign = () => {
         // console.log(campaign);
 
         // send a PUT request to update the Campaign
-        fetch(`https://innofund-server.vercel.app/campaigns/${_id}`, {
+        fetch(`http://localhost:5000/campaigns/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

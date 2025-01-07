@@ -38,7 +38,7 @@ const Signin = () => {
                 const lastSigninTime = result?.user?.metadata?.lastSignInTime;
                 const loginInfo = { email, lastSigninTime };
 
-                fetch(`https://innofund-server.vercel.app/users`, {
+                fetch(`http://localhost:5000/users`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json",

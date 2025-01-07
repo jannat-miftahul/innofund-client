@@ -5,18 +5,39 @@ import CampaignCard from "../../components/CampaignCard";
 
 const AllCampaigns = () => {
     const [campaigns, setCampaigns] = useState([]);
+    const [sortOrder, setSortOrder] = useState("desc");
 
     useEffect(() => {
-        fetch("https://innofund-server.vercel.app/campaigns")
+        fetch(`http://localhost:5000/campaigns?sort=${sortOrder}`)
             .then((res) => res.json())
             .then((data) => setCampaigns(data));
-    }, []);
+    }, [sortOrder]);
+
+    const handleSortChange = (e) => {
+        setSortOrder(e.target.value);
+    };
 
     return (
         <div className="max-w-screen-xl mx-auto py-12">
-            <h1 className="text-3xl font-bold mb-6">All Campaigns</h1>
+            <div className="flex justify-between items-center">
+                <h1 className="text-3xl font-bold mb-6">All Campaigns</h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="space-x-2">
+                    <label className="text-lg text-brightPink font-semibold uppercase">
+                        sort by:
+                    </label>
+                    <select
+                        value={sortOrder}
+                        onChange={handleSortChange}
+                        className="border border-gray-400 rounded px-2 py-1 font-semibold uppercase"
+                    >
+                        <option value="desc">Highest to Lowest</option>
+                        <option value="asc">Lowest to highest</option>
+                    </select>
+                </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
                 {campaigns.map((campaign) => (
                     <CampaignCard key={campaign._id} campaign={campaign} />
                 ))}

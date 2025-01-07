@@ -26,7 +26,7 @@ const routes = createBrowserRouter([
                 path: "all-campaigns",
                 element: <AllCampaigns />,
                 loader: () =>
-                    fetch("https://innofund-server.vercel.app/campaigns"),
+                    fetch("http://localhost:5000/campaigns"),
             },
             {
                 path: "/add-campaign",
@@ -41,7 +41,7 @@ const routes = createBrowserRouter([
                 element: <CampaignDetails />,
                 loader: ({ params }) =>
                     fetch(
-                        `https://innofund-server.vercel.app/campaigns/${params.id}`
+                        `http://localhost:5000/campaigns/${params.id}`
                     ),
             },
             {
@@ -53,7 +53,7 @@ const routes = createBrowserRouter([
                 ),
                 loader: ({ params }) =>
                     fetch(
-                        `https://innofund-server.vercel.app/campaigns/${params.id}`
+                        `http://localhost:5000/campaigns/${params.id}`
                     ),
             },
             {
@@ -72,7 +72,7 @@ const routes = createBrowserRouter([
                     </SecuredRoutes>
                 ),
                 loader: () =>
-                    fetch("https://innofund-server.vercel.app/campaigns"),
+                    fetch("http://localhost:5000/campaigns"),
             },
         ],
     },

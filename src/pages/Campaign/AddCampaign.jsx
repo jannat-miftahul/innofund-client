@@ -22,7 +22,7 @@ const AddCampaign = () => {
         // console.log(campaign);
 
         // Add campaign to the database
-        fetch("https://innofund-server.vercel.app/campaigns", {
+        fetch("http://localhost:5000/campaigns", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
