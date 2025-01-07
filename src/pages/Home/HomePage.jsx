@@ -1,5 +1,7 @@
 import Banner from "../../components/Banner";
+import HowItWorks from "./HowItWorks";
 import RunningCampaigns from "./RunningCampaigns";
+import Testimonials from "./Testimonials";
 
 const HomePage = () => {
     return (
@@ -7,6 +9,8 @@ const HomePage = () => {
             <Banner />
 
             <RunningCampaigns />
+            <HowItWorks />
+            <Testimonials />
         </div>
     );
 };
