@@ -4,7 +4,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 const MyDonations = () => {
     const { user } = useContext(AuthContext);
     const [donations, setDonations] = useState([]);
-    console.log(user);
+    // console.log(user);
     console.log("donations", donations);
 
     useEffect(() => {

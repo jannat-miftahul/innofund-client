@@ -6,18 +6,10 @@ import { AuthContext } from "../../provider/AuthProvider";
 const CampaignDetails = () => {
     const campaign = useLoaderData();
     const { user } = useContext(AuthContext);
-    console.log(user.displayName, user.email);
+    // console.log(user.displayName, user.email);
     const navigate = useNavigate();
-    const {
-        title,
-        type,
-        description,
-        minDonation,
-        deadline,
-        email,
-        username,
-        image,
-    } = campaign || {};
+    const { title, type, description, minDonation, deadline, image } =
+        campaign || {};
 
     const handleDonate = () => {
         const donation = {

@@ -75,7 +75,7 @@ const Signup = () => {
                 })
                     .then((res) => res.json())
                     .then((data) => {
-                        console.log("user created to db", data);
+                        // console.log("user created to db", data);
                         if (data.insertedId) {
                             console.log("User created successfully");
                             setUser(result.user);
@@ -112,7 +112,7 @@ const Signup = () => {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log("user created to db", data);
+                    // console.log("user created to db", data);
                     if (data.insertedId) {
                         // console.log("User created successfully");
                         setUser(result.user);

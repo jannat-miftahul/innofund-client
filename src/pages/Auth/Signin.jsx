@@ -48,7 +48,7 @@ const Signin = () => {
                 })
                     .then((res) => res.json())
                     .then((data) => {
-                        console.log("user login info updated", data);
+                        // console.log("user login info updated", data);
                     });
             })
             .catch((error) => {
