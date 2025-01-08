@@ -6,6 +6,16 @@ InnoFund is a crowdfunding platform for startups, businesses, and innovative ide
 
 Live URL: [InnoFund](https://innofund-a9c74.web.app/).
 
+## Table of Contents
+
+-   [Features](#features)
+-   [Technologies Used](#technologies-used)
+-   [Dependencies](#dependencies)
+-   [Getting Started](#getting-started)
+-   [Prerequisites](#prerequisites)
+-   [Installation](#installation)
+-   [Usage](#usage)
+
 ## Features
 
 -   User authentication (Sign up, Sign in, Google Sign in)
