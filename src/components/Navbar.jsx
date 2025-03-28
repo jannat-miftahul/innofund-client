@@ -75,8 +75,8 @@ const Navbar = () => {
     );
 
     return (
-        <div className="bg-softOrange/35 backdrop-blur-md bg-opacity-60 sticky top-0 z-50 py-2">
-            <div className="navbar max-w-screen-xl mx-auto">
+        <div className="sticky top-0 z-50 backdrop-blur-md bg-opacity-60 py-2">
+            <div className="navbar max-w-screen-xl mx-auto px-4 lg:px-0">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div
@@ -122,7 +122,7 @@ const Navbar = () => {
 
                 <div className="navbar-end">
                     {user && user?.email ? (
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2">
                             <div className="relative flex flex-col items-center group">
                                 <img
                                     src={
@@ -148,7 +148,7 @@ const Navbar = () => {
                             </div>
                         </div>
                     ) : (
-                        <div className="space-x-4">
+                        <div className="flex items-center gap-2">
                             <Link
                                 to="/auth/signin"
                                 className="btn bg-neonGreen"
@@ -158,7 +158,7 @@ const Navbar = () => {
                             </Link>
                             <Link
                                 to="/auth/signup"
-                                className="btn bg-neonGreen"
+                                className="btn bg-neonGreen hidden lg:flex"
                             >
                                 Sign up
                                 <AiOutlineLogin />
