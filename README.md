@@ -4,7 +4,7 @@ InnoFund is a crowdfunding platform for startups, businesses, and innovative ide
 
 ## Live URL
 
-Live URL: [InnoFund](https://innofund-a9c74.web.app/).
+Live URL: [InnoFund](https://innofund-crowdfunding-platform.web.app)
 
 ## Table of Contents
 

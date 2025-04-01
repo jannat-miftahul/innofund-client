@@ -1,4 +1,5 @@
 import { FaBullseye, FaLightbulb, FaUsers } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const About = () => {
     return (
@@ -58,9 +59,12 @@ const About = () => {
 
             {/* Call-to-Action */}
             <div className="text-center mt-12">
-                <button className="btn bg-gradient-to-r from-skyBlue to-softOrange px-6 py-3 rounded-lg shadow-lg hover:opacity-90">
+                <Link
+                    to="/all-campaigns"
+                    className="btn bg-gradient-to-r from-skyBlue to-softOrange px-6 py-3 rounded-lg shadow-lg hover:opacity-90"
+                >
                     Join Now
-                </button>
+                </Link>
             </div>
         </div>
     );
