@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { AiOutlineLogin } from "react-icons/ai";
-import { TfiMenuAlt } from "react-icons/tfi";
+import { RiMenuFold2Line } from "react-icons/ri";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -85,7 +85,7 @@ const Navbar = () => {
                             role="button"
                             className="btn btn-ghost lg:hidden"
                         >
-                            <TfiMenuAlt size={22} />
+                            <RiMenuFold2Line size={28} />
                         </div>
                         <ul
                             tabIndex={0}
@@ -96,7 +96,7 @@ const Navbar = () => {
                     </div>
                     <NavLink
                         to="/"
-                        className="text-2xl text-brightPink font-bold"
+                        className="font-pacifico text-2xl text-brightPink font-bold"
                     >
                         InnoFund
                     </NavLink>

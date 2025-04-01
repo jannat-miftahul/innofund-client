@@ -44,7 +44,7 @@ const Footer = () => {
                         alt="logo"
                     />
                     <p>
-                        InnoFund
+                        <span className="font-pacifico text-xl">InnoFund</span>
                         <br />
                         Providing a platform for innovators to fund their
                         projects
@@ -52,13 +52,13 @@ const Footer = () => {
                 </aside>
                 <nav className="md:place-self-center md:justify-self-end">
                     <div className="grid grid-flow-col gap-4">
-                        <Link to="https://twitter.com/">
+                        <Link to="https://twitter.com/" className="hover:text-brightPink">
                             <RiTwitterXFill size={24} />
                         </Link>
-                        <Link to="https://www.youtube.com/">
+                        <Link to="https://www.youtube.com/" className="hover:text-brightPink">
                             <FaYoutube size={24} />
                         </Link>
-                        <Link to="https://www.facebook.com/">
+                        <Link to="https://www.facebook.com/" className="hover:text-brightPink">
                             <SiFacebook size={24} />
                         </Link>
                     </div>

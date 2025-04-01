@@ -22,6 +22,7 @@ export default {
             },
             fontFamily: {
                 merriweather: ["Merriweather", "serif"],
+                pacifico: ["Pacifico", "cursive"],
             },
         },
     },
