@@ -96,9 +96,9 @@ const Navbar = () => {
                     </div>
                     <NavLink
                         to="/"
-                        className="font-pacifico text-2xl text-brightPink font-bold"
+                        className="font-pacifico text-2xl text-purple-500 font-semibold"
                     >
-                        InnoFund
+                        Inno<span className="text-pink-500">Fund</span>
                     </NavLink>
                 </div>
 
