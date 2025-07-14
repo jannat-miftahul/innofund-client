@@ -176,44 +176,15 @@ Before running this project, make sure you have the following installed:
 ## 📁 Project Structure
 
 ```
-innofund-client/
-├── public/
-│   ├── index.html
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx
-│   │   ├── Banner.jsx
-│   │   ├── CampaignCard.jsx
-│   │   └── Footer.jsx
-│   ├── pages/
-│   │   ├── Home/
-│   │   │   ├── HomePage.jsx
-│   │   │   ├── RunningCampaigns.jsx
-│   │   │   ├── HowItWorks.jsx
-│   │   │   └── Testimonials.jsx
-│   │   ├── Campaign/
-│   │   │   ├── AllCampaigns.jsx
-│   │   │   ├── CampaignDetails.jsx
-│   │   │   ├── AddCampaign.jsx
-│   │   │   ├── MyCampaigns.jsx
-│   │   │   └── MyDonations.jsx
-│   │   ├── Auth/
-│   │   │   ├── SignIn.jsx
-│   │   │   └── SignUp.jsx
-│   │   ├── About.jsx
-│   │   └── Contact.jsx
-│   ├── provider/
-│   │   └── AuthProvider.jsx
-│   ├── firebase/
-│   │   └── firebase.config.js
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── package.json
-├── tailwind.config.js
-├── vite.config.js
-└── README.md
+src/
+├── components/     # Reusable UI components
+├── pages/          # Page components
+│   ├── Home/
+│   ├── Campaign/
+│   └── Auth/
+├── provider/       # Context providers
+├── firebase/       # Firebase configuration
+└── routes/         # Routing configuration
 ```
 
 ## 🔗 API Endpoints
@@ -241,15 +212,9 @@ We welcome contributions! Please follow these steps:
 4. **Push to the branch** (`git push origin feature/amazing-feature`)
 5. **Open a Pull Request**
 
-### Code Style
-
--   Use ESLint and Prettier for code formatting
--   Follow React best practices
--   Write meaningful commit messages
-
 ## 📄 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**.
 
 ## 🙏 Acknowledgments
 
@@ -260,4 +225,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-**Made with ❤️ by [Miftahul Jannat](https://github.com/jannat-miftahul)**
+<div align="center">
+  <p>Made with ❤️ by <a href="https://github.com/jannat-miftahul">Miftahul Jannat</a></p>
+  <p>⭐ Star this repo if you find it helpful!</p>
+</div>
