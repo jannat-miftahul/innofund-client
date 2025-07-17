@@ -216,13 +216,6 @@ We welcome contributions! Please follow these steps:
 
 This project is licensed under the **MIT License**.
 
-## 🙏 Acknowledgments
-
--   **React Team** for the amazing framework
--   **Tailwind CSS** for the utility-first CSS framework
--   **Firebase** for authentication services
--   **MongoDB** for database solutions
-
 ---
 
 <div align="center">
