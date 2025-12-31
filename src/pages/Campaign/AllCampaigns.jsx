@@ -42,54 +42,6 @@ const AllCampaigns = () => {
                     <CampaignCard key={campaign._id} campaign={campaign} />
                 ))}
             </div>
-
-            {/* Table */}
-            {/* <div className="overflow-x-auto">
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th className="py-2"></th>
-                            <th className="py-2">Title</th>
-                            <th className="py-2">Type</th>
-                            <th className="py-2">Minimum Donation</th>
-                            <th className="py-2">Deadline</th>
-                            <th className="py-2">Email</th>
-                            <th className="py-2">Username</th>
-                            <th className="py-2">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {campaigns.map((campaign) => (
-                            <tr key={campaign._id} className="hover">
-                                <td className="py-2 px-4">
-                                    {campaigns.indexOf(campaign) + 1}
-                                </td>
-                                <td className="py-2 px-4">{campaign.title}</td>
-                                <td className="py-2 px-4">{campaign.type}</td>
-                                <td className="py-2 px-4">
-                                    {campaign.minDonation}
-                                </td>
-                                <td className="py-2 px-4">
-                                    {campaign.deadline}
-                                </td>
-                                <td className="py-2 px-4">{campaign.email}</td>
-                                <td className="py-2 px-4">
-                                    {campaign.username}
-                                </td>
-                                <td className="py-2 px-4">
-                                    <Link
-                                        to={`/campaigns/${campaign._id}`}
-                                        className="flex items-center gap-2 hover:underline"
-                                    >
-                                        See More
-                                        <HiOutlineChevronDoubleRight />
-                                    </Link>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div> */}
         </div>
     );
 };
