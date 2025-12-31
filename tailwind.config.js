@@ -7,10 +7,10 @@ export default {
     theme: {
         extend: {
             colors: {
-                // lightPurple: "#D9D7F1",
-                // lightYellow: "#FFFDDE",
-                // lightGreen: "#E7FBBE",
-                // lightPink: "#FFCBCB",
+                lightPurple: "#D9D7F1",
+                lightYellow: "#FFFDDE",
+                lightGreen: "#E7FBBE",
+                lightPink: "#FFCBCB",
 
                 brightPink: "#FF55BB",
                 softOrange: "#FFD3A3",

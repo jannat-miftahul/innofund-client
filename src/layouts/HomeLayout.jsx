@@ -5,14 +5,25 @@ import { Toaster } from "react-hot-toast";
 
 const HomeLayout = () => {
     return (
-        <div className="max-w-screen-2xl mx-auto flex flex-col min-h-screen">
-            <Toaster />
+        <div className="flex flex-col min-h-screen bg-gradient-to-b from-white via-gray-50 to-white">
+            <Toaster
+                position="top-center"
+                toastOptions={{
+                    duration: 3000,
+                    style: {
+                        background: '#333',
+                        color: '#fff',
+                        borderRadius: '10px',
+                        padding: '16px',
+                    },
+                }}
+            />
 
             {/* Navbar */}
             <Navbar />
 
             {/* Main Content */}
-            <main className="flex-grow">
+            <main className="flex-grow w-full">
                 <Outlet />
             </main>
 
