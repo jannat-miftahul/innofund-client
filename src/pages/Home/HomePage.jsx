@@ -1,4 +1,4 @@
-import Banner from "../../components/Banner";
+import Slider from "../../components/Slider";
 import HowItWorks from "./HowItWorks";
 import RunningCampaigns from "./RunningCampaigns";
 import Testimonials from "./Testimonials";
@@ -9,7 +9,7 @@ const HomePage = () => {
     return (
         <div className="overflow-hidden">
             {/* Hero Banner Section */}
-            <Banner />
+            <Slider />
 
             {/* Stats Section */}
             <section className="py-12 sm:py-16 bg-paleYellow/30">
