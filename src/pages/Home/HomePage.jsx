@@ -139,26 +139,7 @@ const HomePage = () => {
         },
     ];
 
-    const features = [
-        {
-            icon: FaShieldAlt,
-            title: "Secure Transactions",
-            description:
-                "Enterprise-grade security protecting every donation with encrypted payments.",
-        },
-        {
-            icon: FaGlobe,
-            title: "Global Reach",
-            description:
-                "Connect with supporters worldwide and expand your campaign's impact.",
-        },
-        {
-            icon: FaChartLine,
-            title: "Real-time Analytics",
-            description:
-                "Track your campaign performance with detailed insights and metrics.",
-        },
-    ];
+
 
     return (
         <div className="overflow-hidden">
@@ -235,58 +216,188 @@ const HomePage = () => {
                 </div>
             </section>
 
-            {/* Features Section - New Premium Section */}
-            <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+            {/* Features Section - Why Choose InnoFund - Premium Bento Grid */}
+            <section className="py-20 sm:py-32 bg-gradient-to-b from-white via-lightPurple/20 to-white relative overflow-hidden">
                 {/* Decorative elements */}
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neonGreen via-brightPink to-softOrange" />
-                <div className="absolute -top-40 -right-40 w-80 h-80 bg-brightPink/5 rounded-full blur-3xl" />
-                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-neonGreen/5 rounded-full blur-3xl" />
+                <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-gradient-to-br from-brightPink/10 to-softOrange/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-20 left-0 w-[400px] h-[400px] bg-gradient-to-br from-neonGreen/10 to-skyBlue/10 rounded-full blur-3xl" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-paleYellow/20 to-lightPink/10 rounded-full blur-3xl" />
 
                 <div className="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Section Header */}
-                    <div className="text-center mb-12 sm:mb-16">
-                        <span className="inline-block px-4 py-2 rounded-full bg-brightPink/10 text-brightPink text-sm font-semibold mb-4">
+                    <div className="text-center mb-16 sm:mb-20">
+                        <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-brightPink/10 to-softOrange/10 text-brightPink text-sm font-semibold mb-6 border border-brightPink/20">
+                            <span className="w-2 h-2 rounded-full bg-brightPink animate-pulse" />
                             Why Choose InnoFund
                         </span>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6">
                             Built for{" "}
-                            <span className="text-brightPink">Success</span>
+                            <span className="relative inline-block">
+                                <span className="bg-gradient-to-r from-brightPink via-softOrange to-brightPink bg-clip-text text-transparent">
+                                    Success
+                                </span>
+                                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
+                                    <path d="M2 10C50 2 150 2 198 10" stroke="url(#underline-gradient)" strokeWidth="4" strokeLinecap="round" />
+                                    <defs>
+                                        <linearGradient id="underline-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stopColor="#DB2777" />
+                                            <stop offset="50%" stopColor="#FDBA74" />
+                                            <stop offset="100%" stopColor="#DB2777" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </span>
                         </h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
+                        <p className="text-gray-600 max-w-2xl mx-auto text-lg sm:text-xl">
                             Everything you need to launch, manage, and succeed
                             with your crowdfunding campaign.
                         </p>
                     </div>
 
-                    {/* Features Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {features.map((feature, index) => (
-                            <div
-                                key={index}
-                                className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-brightPink/30 overflow-hidden"
-                            >
-                                {/* Hover gradient overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-brightPink/5 to-neonGreen/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    {/* Bento Grid Layout */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {/* Feature Card 1 - Large */}
+                        <div className="group relative md:col-span-2 lg:col-span-1 lg:row-span-2 bg-gradient-to-br from-brightPink to-rose-600 rounded-3xl p-8 sm:p-10 shadow-2xl shadow-brightPink/20 overflow-hidden">
+                            {/* Animated background pattern */}
+                            <div className="absolute inset-0 opacity-10">
+                                <div className="absolute inset-0" style={{
+                                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                                }} />
+                            </div>
 
-                                {/* Decorative corner */}
-                                <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-neonGreen/20 to-brightPink/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            {/* Floating elements */}
+                            <div className="absolute top-6 right-6 w-20 h-20 bg-white/10 rounded-2xl rotate-12 group-hover:rotate-45 transition-transform duration-700" />
+                            <div className="absolute bottom-10 right-10 w-16 h-16 bg-white/10 rounded-full group-hover:scale-150 transition-transform duration-700" />
 
-                                <div className="relative z-10">
-                                    {/* Icon */}
-                                    <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-brightPink to-pink-600 rounded-2xl mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                                        <feature.icon className="w-7 h-7 text-white" />
+                            <div className="relative z-10 h-full flex flex-col justify-between">
+                                <div>
+                                    <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                                        <FaShieldAlt className="w-8 h-8 text-white" />
                                     </div>
-
-                                    {/* Content */}
-                                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-brightPink transition-colors duration-300">
-                                        {feature.title}
+                                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                                        Secure & Trusted
                                     </h3>
-                                    <p className="text-gray-600 leading-relaxed">
-                                        {feature.description}
+                                    <p className="text-white/80 text-lg leading-relaxed mb-6">
+                                        Enterprise-grade security protecting every donation with end-to-end encrypted payments and fraud detection.
                                     </p>
                                 </div>
+
+                                {/* Stats */}
+                                <div className="flex items-center gap-6 pt-6 border-t border-white/20">
+                                    <div>
+                                        <p className="text-3xl font-bold text-white">99.9%</p>
+                                        <p className="text-white/60 text-sm">Uptime</p>
+                                    </div>
+                                    <div className="w-px h-12 bg-white/20" />
+                                    <div>
+                                        <p className="text-3xl font-bold text-white">256-bit</p>
+                                        <p className="text-white/60 text-sm">Encryption</p>
+                                    </div>
+                                </div>
                             </div>
-                        ))}
+                        </div>
+
+                        {/* Feature Card 2 */}
+                        <div className="group relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-neonGreen/30 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-br from-neonGreen/5 to-skyBlue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-neonGreen/20 to-skyBlue/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                            <div className="relative z-10">
+                                <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-neonGreen to-green-600 rounded-2xl mb-6 shadow-lg shadow-neonGreen/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                                    <FaGlobe className="w-7 h-7 text-white" />
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-neonGreen transition-colors duration-300">
+                                    Global Reach
+                                </h3>
+                                <p className="text-gray-600 leading-relaxed mb-4">
+                                    Connect with supporters from 150+ countries worldwide.
+                                </p>
+                                <div className="flex -space-x-2">
+                                    {['🇺🇸', '🇬🇧', '🇯🇵', '🇩🇪', '🇫🇷'].map((flag, i) => (
+                                        <span key={i} className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 text-sm border-2 border-white">
+                                            {flag}
+                                        </span>
+                                    ))}
+                                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-neonGreen text-xs font-bold text-white border-2 border-white">
+                                        +145
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Feature Card 3 */}
+                        <div className="group relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-softOrange/30 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-br from-softOrange/5 to-paleYellow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-softOrange/20 to-paleYellow/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                            <div className="relative z-10">
+                                <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-softOrange to-orange-500 rounded-2xl mb-6 shadow-lg shadow-softOrange/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                                    <FaChartLine className="w-7 h-7 text-white" />
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-softOrange transition-colors duration-300">
+                                    Real-time Analytics
+                                </h3>
+                                <p className="text-gray-600 leading-relaxed mb-4">
+                                    Track performance with detailed insights and metrics.
+                                </p>
+                                {/* Mini chart visualization */}
+                                <div className="flex items-end gap-1 h-12">
+                                    {[40, 65, 45, 80, 55, 90, 70].map((h, i) => (
+                                        <div
+                                            key={i}
+                                            className="flex-1 bg-gradient-to-t from-softOrange to-paleYellow rounded-t transition-all duration-300 group-hover:from-softOrange group-hover:to-orange-400"
+                                            style={{ height: `${h}%` }}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Feature Card 4 - Wide */}
+                        <div className="group relative lg:col-span-2 bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 sm:p-10 shadow-2xl overflow-hidden">
+                            {/* Animated gradient orbs */}
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-brightPink/20 rounded-full blur-3xl group-hover:bg-brightPink/30 transition-colors duration-700" />
+                            <div className="absolute bottom-0 left-0 w-48 h-48 bg-neonGreen/20 rounded-full blur-3xl group-hover:bg-neonGreen/30 transition-colors duration-700" />
+
+                            <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center gap-8">
+                                <div className="flex-1">
+                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neonGreen/20 text-neonGreen text-sm font-medium mb-4">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-neonGreen animate-pulse" />
+                                        Active Support
+                                    </div>
+                                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                                        24/7 Expert Support
+                                    </h3>
+                                    <p className="text-gray-400 text-lg leading-relaxed">
+                                        Our dedicated team is always here to help you succeed. Get assistance whenever you need it.
+                                    </p>
+                                </div>
+
+                                {/* Support stats */}
+                                <div className="flex flex-row sm:flex-col gap-6 sm:gap-4">
+                                    <div className="text-center sm:text-right">
+                                        <p className="text-4xl font-bold text-white">&lt;2min</p>
+                                        <p className="text-gray-500 text-sm">Avg. Response</p>
+                                    </div>
+                                    <div className="text-center sm:text-right">
+                                        <p className="text-4xl font-bold text-neonGreen">98%</p>
+                                        <p className="text-gray-500 text-sm">Satisfaction</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Bottom CTA */}
+                    <div className="mt-16 text-center">
+                        <Link
+                            to="/about"
+                            className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-brightPink to-softOrange text-white font-semibold rounded-full shadow-lg shadow-brightPink/30 hover:shadow-xl hover:shadow-brightPink/40 hover:scale-105 transition-all duration-300"
+                        >
+                            <span>Learn More About Us</span>
+                            <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
+                        </Link>
                     </div>
                 </div>
             </section>
