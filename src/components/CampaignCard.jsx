@@ -29,16 +29,16 @@ const CampaignCard = ({ campaign }) => {
 
     return (
         <div
-            className={`group relative rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 ${
+            className={`group relative rounded-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 ${
                 isDark ? "bg-gradient-to-b from-darkCard to-darkBg" : "bg-white"
             }`}
         >
             {/* Animated border gradient */}
-            <div className="absolute inset-0 rounded-3xl p-[1px] bg-gradient-to-br from-brightPink/50 via-transparent to-neonGreen/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 rounded-xl p-[1px] bg-gradient-to-br from-brightPink/50 via-transparent to-neonGreen/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             {/* Card inner container */}
             <div
-                className={`relative h-full rounded-3xl overflow-hidden border ${
+                className={`relative h-full rounded-xl overflow-hidden border ${
                     isDark
                         ? "border-darkBorder group-hover:border-transparent"
                         : "border-gray-100 group-hover:border-transparent shadow-lg group-hover:shadow-2xl group-hover:shadow-brightPink/10"
