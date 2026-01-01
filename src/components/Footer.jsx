@@ -43,7 +43,7 @@ const Footer = () => {
     const socialLinks = [
         { to: "https://twitter.com/", icon: <RiTwitterXFill className="w-5 h-5" />, label: "Twitter", color: "hover:bg-sky-500" },
         { to: "https://www.facebook.com/", icon: <SiFacebook className="w-5 h-5" />, label: "Facebook", color: "hover:bg-blue-600" },
-        { to: "https://www.instagram.com/", icon: <FaInstagram className="w-5 h-5" />, label: "Instagram", color: "hover:bg-gradient-to-br hover:from-purple-600 hover:via-pink-500 hover:to-orange-400" },
+        { to: "https://www.instagram.com/", icon: <FaInstagram className="w-5 h-5" />, label: "Instagram", color: "hover:bg-gradient-to-br hover:from-brightPink hover:via-coral hover:to-softOrange" },
         { to: "https://www.youtube.com/", icon: <FaYoutube className="w-5 h-5" />, label: "YouTube", color: "hover:bg-red-600" },
         { to: "https://www.linkedin.com/", icon: <FaLinkedinIn className="w-5 h-5" />, label: "LinkedIn", color: "hover:bg-blue-700" },
     ];
@@ -54,13 +54,13 @@ const Footer = () => {
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {/* Gradient orbs */}
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-brightPink/10 rounded-full blur-3xl" />
-                <div className="absolute top-1/2 right-0 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
+                <div className="absolute top-1/2 right-0 w-80 h-80 bg-violet/10 rounded-full blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-72 h-72 bg-neonGreen/10 rounded-full blur-3xl" />
 
                 {/* Floating particles */}
                 <div className="absolute top-20 right-20 w-2 h-2 bg-brightPink rounded-full animate-pulse" />
                 <div className="absolute top-40 left-32 w-3 h-3 bg-neonGreen rounded-full animate-pulse" style={{ animationDelay: "0.5s" }} />
-                <div className="absolute bottom-40 right-1/3 w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: "1s" }} />
+                <div className="absolute bottom-40 right-1/3 w-2 h-2 bg-violet rounded-full animate-pulse" style={{ animationDelay: "1s" }} />
             </div>
 
             {/* Newsletter Section */}
@@ -68,7 +68,7 @@ const Footer = () => {
                 <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
                     <div className="relative bg-gradient-to-r from-gray-800/50 via-gray-800/30 to-gray-800/50 rounded-3xl p-8 sm:p-10 lg:p-12 backdrop-blur-sm border border-gray-700/50 overflow-hidden">
                         {/* Background decoration */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-brightPink/20 to-purple-600/20 rounded-full blur-3xl" />
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-brightPink/20 to-coral/20 rounded-full blur-3xl" />
 
                         <div className="relative flex flex-col lg:flex-row items-center justify-between gap-8">
                             <div className="text-center lg:text-left max-w-lg">
@@ -97,7 +97,7 @@ const Footer = () => {
                                 </div>
                                 <button
                                     type="submit"
-                                    className="group flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-brightPink to-purple-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-brightPink/30 hover:scale-105"
+                                    className="group flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-brightPink to-coral text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-brightPink/30 hover:scale-105"
                                 >
                                     {isSubscribed ? (
                                         <>
@@ -124,7 +124,7 @@ const Footer = () => {
                     <div className="lg:col-span-4">
                         <Link to="/" className="inline-flex items-center gap-3 mb-6 group">
                             <h4 className="font-pacifico text-2xl sm:text-3xl">
-                                <span className="bg-gradient-to-r from-purple-400 to-brightPink bg-clip-text text-transparent">
+                                <span className="bg-gradient-to-r from-coral to-brightPink bg-clip-text text-transparent">
                                     Inno
                                 </span>
                                 <span className="bg-gradient-to-r from-brightPink to-neonGreen bg-clip-text text-transparent">
@@ -152,8 +152,8 @@ const Footer = () => {
                                 <span>hello@innofund.com</span>
                             </div>
                             <div className="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors group">
-                                <div className="w-10 h-10 rounded-xl bg-gray-800 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors">
-                                    <HiPhone className="w-5 h-5 text-purple-400" />
+                                <div className="w-10 h-10 rounded-xl bg-gray-800 flex items-center justify-center group-hover:bg-violet/20 transition-colors">
+                                    <HiPhone className="w-5 h-5 text-violet" />
                                 </div>
                                 <span>+1 (555) 123-4567</span>
                             </div>
@@ -177,7 +177,7 @@ const Footer = () => {
                     {/* Quick Links */}
                     <div className="lg:col-span-2 lg:col-start-6">
                         <h6 className="text-white font-semibold text-lg mb-6 flex items-center gap-2">
-                            <div className="w-1.5 h-6 bg-gradient-to-b from-brightPink to-purple-600 rounded-full" />
+                            <div className="w-1.5 h-6 bg-gradient-to-b from-brightPink to-coral rounded-full" />
                             Quick Links
                         </h6>
                         <ul className="space-y-3">
@@ -226,7 +226,7 @@ const Footer = () => {
                     {/* Legal */}
                     <div className="lg:col-span-2">
                         <h6 className="text-white font-semibold text-lg mb-6 flex items-center gap-2">
-                            <div className="w-1.5 h-6 bg-gradient-to-b from-purple-500 to-indigo-600 rounded-full" />
+                            <div className="w-1.5 h-6 bg-gradient-to-b from-violet to-teal rounded-full" />
                             Legal
                         </h6>
                         <ul className="space-y-3">

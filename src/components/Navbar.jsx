@@ -88,7 +88,7 @@ const Navbar = () => {
                     isMobile ? "w-full" : ""
                 } ${
                     isActive
-                        ? "text-white bg-gradient-to-r from-brightPink to-purple-600 shadow-lg shadow-brightPink/25"
+                        ? "text-white bg-gradient-to-r from-brightPink to-coral shadow-lg shadow-brightPink/25"
                         : "text-gray-700 hover:text-brightPink hover:bg-brightPink/10"
                 }`
             }
@@ -120,7 +120,7 @@ const Navbar = () => {
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-brightPink to-neonGreen bg-[length:200%_100%] animate-shimmer" />
 
                 {/* Subtle mesh gradient overlay */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-purple-500/5 via-transparent to-neonGreen/5 pointer-events-none" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-violet/5 via-transparent to-neonGreen/5 pointer-events-none" />
 
                 <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                     <div className="flex items-center justify-between h-16 sm:h-20">
@@ -130,7 +130,7 @@ const Navbar = () => {
                             className="group flex items-center gap-3"
                         >
                             <div className="font-pacifico text-xl sm:text-2xl lg:text-3xl">
-                                <span className="bg-gradient-to-r from-purple-600 to-brightPink bg-clip-text text-transparent drop-shadow-sm">
+                                <span className="bg-gradient-to-r from-violet to-brightPink bg-clip-text text-transparent drop-shadow-sm">
                                     Inno
                                 </span>
                                 <span className="bg-gradient-to-r from-brightPink to-softOrange bg-clip-text text-transparent drop-shadow-sm">
@@ -224,10 +224,10 @@ const Navbar = () => {
                                             }`}
                                         >
                                             {/* User Info */}
-                                            <div className="p-4 bg-gradient-to-br from-brightPink/10 via-purple-500/5 to-neonGreen/10 border-b border-gray-100">
+                                            <div className="p-4 bg-gradient-to-br from-brightPink/10 via-teal/5 to-neonGreen/10 border-b border-gray-100">
                                                 <div className="flex items-center gap-3">
                                                     <div className="relative">
-                                                        <div className="absolute -inset-1 bg-gradient-to-r from-brightPink to-purple-600 rounded-full blur opacity-50" />
+                                                        <div className="absolute -inset-1 bg-gradient-to-r from-brightPink to-coral rounded-full blur opacity-50" />
                                                         <img
                                                             src={
                                                                 user?.photoURL ||
@@ -257,7 +257,7 @@ const Navbar = () => {
                                                         to={link.to}
                                                         className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-gray-100 transition-colors group"
                                                     >
-                                                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brightPink/20 to-purple-600/20 flex items-center justify-center text-brightPink group-hover:from-brightPink group-hover:to-purple-600 group-hover:text-white transition-all duration-300">
+                                                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brightPink/20 to-coral/20 flex items-center justify-center text-brightPink group-hover:from-brightPink group-hover:to-coral group-hover:text-white transition-all duration-300">
                                                             {link.icon}
                                                         </div>
                                                         <div>
@@ -303,13 +303,13 @@ const Navbar = () => {
                                     </Link>
                                     <Link
                                         to="/auth/signup"
-                                        className="group relative flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-brightPink to-purple-600 text-white rounded-full font-semibold text-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-brightPink/40 hover:scale-105"
+                                        className="group relative flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-brightPink to-coral text-white rounded-full font-semibold text-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-brightPink/40 hover:scale-105"
                                     >
                                         <span className="relative">
                                             Get Started
                                         </span>
                                         <AiOutlineLogin className="relative w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                                        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-brightPink opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        <div className="absolute inset-0 bg-gradient-to-r from-coral to-brightPink opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     </Link>
                                 </div>
                             )}
@@ -374,9 +374,9 @@ const Navbar = () => {
                 >
                     <div className="flex flex-col h-full">
                         {/* Menu Header */}
-                        <div className="flex items-center justify-between p-5 border-b border-gray-100 bg-gradient-to-r from-brightPink/5 to-purple-500/5">
+                        <div className="flex items-center justify-between p-5 border-b border-gray-100 bg-gradient-to-r from-brightPink/5 to-coral/5">
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-gradient-to-br from-brightPink to-purple-600 rounded-xl flex items-center justify-center">
+                                <div className="w-10 h-10 bg-gradient-to-br from-brightPink to-coral rounded-xl flex items-center justify-center">
                                     <IoRocketSharp className="w-5 h-5 text-white" />
                                 </div>
                                 <span className="text-lg font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
@@ -422,9 +422,9 @@ const Navbar = () => {
                                         <Link
                                             key={link.to}
                                             to={link.to}
-                                            className="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-gradient-to-r hover:from-brightPink/10 hover:to-purple-500/10 transition-all group"
+                                            className="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-gradient-to-r hover:from-brightPink/10 hover:to-coral/10 transition-all group"
                                         >
-                                            <div className="w-10 h-10 rounded-xl bg-gray-100 group-hover:bg-gradient-to-br group-hover:from-brightPink group-hover:to-purple-600 flex items-center justify-center text-gray-600 group-hover:text-white transition-all">
+                                            <div className="w-10 h-10 rounded-xl bg-gray-100 group-hover:bg-gradient-to-br group-hover:from-brightPink group-hover:to-coral flex items-center justify-center text-gray-600 group-hover:text-white transition-all">
                                                 {link.icon}
                                             </div>
                                             <div>
@@ -446,7 +446,7 @@ const Navbar = () => {
                             {user?.email ? (
                                 <div className="space-y-4">
                                     {/* User info */}
-                                    <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-brightPink/10 to-purple-500/10 rounded-2xl">
+                                    <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-brightPink/10 to-coral/10 rounded-2xl">
                                         <img
                                             src={
                                                 user?.photoURL ||
@@ -476,7 +476,7 @@ const Navbar = () => {
                                 <div className="space-y-3">
                                     <Link
                                         to="/auth/signup"
-                                        className="w-full flex items-center justify-center gap-2 px-4 py-3.5 bg-gradient-to-r from-brightPink to-purple-600 text-white rounded-2xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brightPink/30"
+                                        className="w-full flex items-center justify-center gap-2 px-4 py-3.5 bg-gradient-to-r from-brightPink to-coral text-white rounded-2xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brightPink/30"
                                     >
                                         <RiSparklingFill className="w-5 h-5" />
                                         Get Started Free
