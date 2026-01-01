@@ -163,9 +163,6 @@ const Navbar = () => {
                                         onFocus={() => setIsSearchFocused(true)}
                                         onBlur={() => setIsSearchFocused(false)}
                                     />
-                                    <kbd className="absolute right-3 top-1/2 -translate-y-1/2 hidden sm:inline-flex items-center gap-1 px-2 py-0.5 bg-gray-200/80 rounded text-[10px] text-gray-500 font-mono">
-                                        ⌘K
-                                    </kbd>
                                 </div>
                             </div>
 

@@ -26,6 +26,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .heroSwiper .swiper-slide img {
@@ -35,51 +36,88 @@ body {
     object-fit: cover;
 }
 
-/* Swiper Navigation */
+/* Swiper Navigation - Enhanced */
 .heroSwiper .swiper-button-next,
 .heroSwiper .swiper-button-prev {
     color: white;
-    background: rgba(0, 0, 0, 0.3);
-    width: 50px;
-    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
-    backdrop-filter: blur(4px);
-    transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .heroSwiper .swiper-button-next:hover,
 .heroSwiper .swiper-button-prev:hover {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(16, 185, 129, 0.3);
+    border-color: rgba(16, 185, 129, 0.5);
     transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
 }
 
 .heroSwiper .swiper-button-next::after,
 .heroSwiper .swiper-button-prev::after {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
 
-/* Swiper Pagination */
+.heroSwiper .swiper-button-prev {
+    left: 24px;
+}
+
+.heroSwiper .swiper-button-next {
+    right: 24px;
+}
+
+/* Swiper Pagination - Enhanced */
+.heroSwiper .swiper-pagination {
+    bottom: 40px !important;
+}
+
 .heroSwiper .swiper-pagination-bullet {
     width: 12px;
     height: 12px;
-    background: white;
-    opacity: 0.5;
-    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.4);
+    opacity: 1;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.heroSwiper .swiper-pagination-bullet .bullet-inner {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #10B981, #14B8A6);
+    transform: scale(0);
+    border-radius: 50%;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.heroSwiper .swiper-pagination-bullet:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.2);
 }
 
 .heroSwiper .swiper-pagination-bullet-active {
-    opacity: 1;
-    background: #D5FF5E;
-    width: 30px;
-    border-radius: 6px;
+    background: transparent;
+    width: 40px;
+    border-radius: 20px;
+    border: 2px solid rgba(16, 185, 129, 0.5);
 }
 
-/* Animations */
+.heroSwiper .swiper-pagination-bullet-active .bullet-inner {
+    transform: scale(1);
+    border-radius: 20px;
+}
+
+/* Animation Keyframes */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
     }
     to {
         opacity: 1;
@@ -87,8 +125,80 @@ body {
     }
 }
 
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translateY(-25px) rotate(180deg);
+        opacity: 0.7;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .animate-fadeInUp {
-    animation: fadeInUp 0.8s ease-out forwards;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-fadeInDown {
+    animation: fadeInDown 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+.animate-scaleIn {
+    animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Animation Delays */
+.animation-delay-200 {
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+.animation-delay-400 {
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+.animation-delay-600 {
+    animation-delay: 0.6s;
+    opacity: 0;
+}
+
+/* Slide transition content animations */
+.heroSwiper .swiper-slide-active .animate-fadeInUp,
+.heroSwiper .swiper-slide-active .animate-fadeInDown {
+    animation-play-state: running;
+}
+
+.heroSwiper .swiper-slide:not(.swiper-slide-active) .animate-fadeInUp,
+.heroSwiper .swiper-slide:not(.swiper-slide-active) .animate-fadeInDown {
+    opacity: 0;
 }
 
 /* Smooth scrolling */
