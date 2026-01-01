@@ -45,7 +45,7 @@ const CampaignCard = ({ campaign }) => {
                 }`}
             >
                 {/* Image Section */}
-                <div className="relative h-52 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
                     {/* Image with overlay */}
                     <img
                         src={campaign.image}
@@ -57,19 +57,19 @@ const CampaignCard = ({ campaign }) => {
                     <div
                         className={`absolute inset-0 bg-gradient-to-t ${
                             isDark
-                                ? "from-darkCard via-darkCard/20 to-transparent"
-                                : "from-black/40 via-transparent to-transparent"
-                        } opacity-60 group-hover:opacity-80 transition-opacity duration-500`}
+                                ? "from-darkCard/80 via-transparent to-transparent"
+                                : "from-black/30 via-transparent to-transparent"
+                        } opacity-50 group-hover:opacity-70 transition-opacity duration-500`}
                     />
 
                     {/* Top badges */}
-                    <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
+                    <div className="absolute top-3 left-3 right-3 flex justify-between items-start">
                         {/* Category badge */}
                         <span
                             className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold backdrop-blur-md border transition-all duration-300 group-hover:scale-105 ${
                                 isDark
                                     ? "bg-darkBg/70 text-neonGreen border-neonGreen/30"
-                                    : "bg-white/80 text-brightPink border-white/50"
+                                    : "bg-white/90 text-brightPink border-white/50 shadow-sm"
                             }`}
                         >
                             <HiSparkles className="w-3 h-3" />
@@ -83,59 +83,13 @@ const CampaignCard = ({ campaign }) => {
                             </span>
                         )}
                     </div>
-
-                    {/* Bottom floating stats */}
-                    <div className="absolute bottom-4 left-4 right-4 flex gap-3">
-                        <div
-                            className={`flex-1 flex items-center gap-2 px-3 py-2 rounded-xl backdrop-blur-md border transition-all duration-300 ${
-                                isDark
-                                    ? "bg-darkBg/60 border-darkBorder/50 text-white"
-                                    : "bg-white/80 border-white/50 text-gray-800"
-                            }`}
-                        >
-                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-neonGreen to-teal flex items-center justify-center">
-                                <FaSackDollar className="w-4 h-4 text-white" />
-                            </div>
-                            <div>
-                                <p className="text-[10px] uppercase tracking-wider opacity-60">
-                                    Min. Donation
-                                </p>
-                                <p className="text-sm font-bold">
-                                    ${campaign.minDonation}
-                                </p>
-                            </div>
-                        </div>
-                        <div
-                            className={`flex items-center gap-2 px-3 py-2 rounded-xl backdrop-blur-md border transition-all duration-300 ${
-                                isDark
-                                    ? "bg-darkBg/60 border-darkBorder/50 text-white"
-                                    : "bg-white/80 border-white/50 text-gray-800"
-                            }`}
-                        >
-                            <div
-                                className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                                    isUrgent
-                                        ? "bg-gradient-to-br from-red-500 to-orange-500"
-                                        : "bg-gradient-to-br from-softOrange to-coral"
-                                }`}
-                            >
-                                <FaRegCalendarAlt className="w-4 h-4 text-white" />
-                            </div>
-                            <div>
-                                <p className="text-[10px] uppercase tracking-wider opacity-60">
-                                    Days Left
-                                </p>
-                                <p className="text-sm font-bold">{daysLeft}</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-5 space-y-4">
+                <div className="p-5 space-y-3">
                     {/* Title */}
                     <h2
-                        className={`text-xl font-bold leading-tight line-clamp-2 transition-colors duration-300 group-hover:text-brightPink ${
+                        className={`text-lg font-bold leading-tight line-clamp-2 transition-colors duration-300 group-hover:text-brightPink ${
                             isDark ? "text-white" : "text-gray-900"
                         }`}
                     >
@@ -151,21 +105,81 @@ const CampaignCard = ({ campaign }) => {
                         {truncateDescription(campaign.description)}
                     </p>
 
+                    {/* Stats Row */}
+                    <div
+                        className={`flex items-center justify-between pt-3 border-t ${
+                            isDark ? "border-darkBorder/50" : "border-gray-100"
+                        }`}
+                    >
+                        <div className="flex items-center gap-2">
+                            <FaSackDollar className="w-3.5 h-3.5 text-neonGreen" />
+                            <div>
+                                <p
+                                    className={`text-[10px] uppercase tracking-wide ${
+                                        isDark
+                                            ? "text-gray-500"
+                                            : "text-gray-400"
+                                    }`}
+                                >
+                                    Min. Donation
+                                </p>
+                                <p
+                                    className={`text-sm font-bold ${
+                                        isDark ? "text-white" : "text-gray-900"
+                                    }`}
+                                >
+                                    ${campaign.minDonation}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <FaRegCalendarAlt
+                                className={`w-3.5 h-3.5 ${
+                                    isUrgent
+                                        ? "text-red-500"
+                                        : "text-softOrange"
+                                }`}
+                            />
+                            <div className="text-right">
+                                <p
+                                    className={`text-[10px] uppercase tracking-wide ${
+                                        isDark
+                                            ? "text-gray-500"
+                                            : "text-gray-400"
+                                    }`}
+                                >
+                                    Days Left
+                                </p>
+                                <p
+                                    className={`text-sm font-bold ${
+                                        isUrgent
+                                            ? "text-red-500"
+                                            : isDark
+                                            ? "text-white"
+                                            : "text-gray-900"
+                                    }`}
+                                >
+                                    {daysLeft}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                     {/* CTA Button */}
                     <Link
                         to={`/campaigns/${campaign._id}`}
-                        className={`relative flex items-center justify-center gap-3 py-3.5 rounded-2xl font-semibold text-sm overflow-hidden transition-all duration-500 group/btn ${
+                        className={`relative flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm overflow-hidden transition-all duration-500 group/btn ${
                             isDark
                                 ? "bg-gradient-to-r from-darkBorder to-darkBorder hover:from-brightPink hover:to-coral text-gray-300 hover:text-white"
-                                : "bg-gradient-to-r from-gray-100 to-gray-50 hover:from-brightPink hover:to-coral text-gray-700 hover:text-white"
+                                : "bg-gradient-to-r from-gray-100 to-gray-100 hover:from-brightPink hover:to-coral text-gray-700 hover:text-white"
                         }`}
                     >
                         {/* Shine effect */}
                         <span className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
-                        <FaHandHoldingDollar className="w-5 h-5 transition-transform duration-300 group-hover/btn:scale-110" />
+                        <FaHandHoldingDollar className="w-4 h-4 transition-transform duration-300 group-hover/btn:scale-110" />
                         <span>View Campaign</span>
-                        <FaArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                        <FaArrowRight className="w-3 h-3 transition-transform duration-300 group-hover/btn:translate-x-1" />
                     </Link>
                 </div>
             </div>
