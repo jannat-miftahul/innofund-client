@@ -4,8 +4,11 @@ import {
     FaShareAlt,
     FaHandHoldingUsd,
 } from "react-icons/fa";
+import { useTheme } from "../../provider/ThemeProvider";
 
 const HowItWorks = () => {
+    const { isDark } = useTheme();
+
     const steps = [
         {
             icon: FaUserPlus,
@@ -46,26 +49,54 @@ const HowItWorks = () => {
     ];
 
     return (
-        <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+        <section
+            className={`py-16 sm:py-24 lg:py-32 relative overflow-hidden ${
+                isDark
+                    ? "bg-gradient-to-b from-darkBg to-darkCard"
+                    : "bg-gradient-to-b from-gray-50 to-white"
+            }`}
+        >
             {/* Background decorations */}
-            <div className="absolute top-20 left-10 w-72 h-72 bg-brightPink/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-20 right-10 w-72 h-72 bg-neonGreen/5 rounded-full blur-3xl" />
+            <div
+                className={`absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl ${
+                    isDark ? "bg-brightPink/10" : "bg-brightPink/5"
+                }`}
+            />
+            <div
+                className={`absolute bottom-20 right-10 w-72 h-72 rounded-full blur-3xl ${
+                    isDark ? "bg-neonGreen/10" : "bg-neonGreen/5"
+                }`}
+            />
 
             {/* Subtle grid pattern */}
             <div
-                className="absolute inset-0 opacity-[0.02]"
+                className={`absolute inset-0 ${
+                    isDark ? "opacity-[0.01]" : "opacity-[0.02]"
+                }`}
                 style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23${
+                        isDark ? "ffffff" : "000000"
+                    }' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
                 }}
             />
 
             <div className="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="text-center mb-16 sm:mb-20">
-                    <span className="inline-block px-4 py-2 rounded-full bg-neonGreen/10 text-neonGreen font-semibold text-sm mb-4 border border-neonGreen/20">
+                    <span
+                        className={`inline-block px-4 py-2 rounded-full text-neonGreen font-semibold text-sm mb-4 ${
+                            isDark
+                                ? "bg-neonGreen/10 border border-neonGreen/20"
+                                : "bg-neonGreen/10 border border-neonGreen/20"
+                        }`}
+                    >
                         Simple Process
                     </span>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    <h2
+                        className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${
+                            isDark ? "text-white" : "text-gray-900"
+                        }`}
+                    >
                         How It{" "}
                         <span className="relative inline-block">
                             <span className="relative z-10 text-brightPink">
@@ -74,7 +105,11 @@ const HowItWorks = () => {
                             <span className="absolute -bottom-1 left-0 w-full h-3 bg-brightPink/20 rounded-full -rotate-1" />
                         </span>
                     </h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
+                    <p
+                        className={`max-w-2xl mx-auto text-base sm:text-lg ${
+                            isDark ? "text-gray-400" : "text-gray-600"
+                        }`}
+                    >
                         Start your fundraising journey in four simple steps.
                         It&apos;s easy, fast, and secure.
                     </p>
@@ -83,9 +118,9 @@ const HowItWorks = () => {
                 {/* Steps Container */}
                 <div className="relative">
                     {/* Connection Line - Desktop */}
-                    <div className="hidden lg:block absolute top-1/2 left-[12.5%] right-[12.5%] h-1 bg-gradient-to-r from-sky-400 via-brightPink via-orange-400 to-neonGreen rounded-full transform -translate-y-1/2 z-0">
+                    <div className="hidden lg:block absolute top-1/2 left-[12.5%] right-[12.5%] h-1 bg-gradient-to-r from-sky-400 via-softOrange to-neonGreen rounded-full transform -translate-y-1/2 z-0">
                         {/* Animated glow */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-sky-400 via-brightPink via-orange-400 to-neonGreen rounded-full blur-sm animate-pulse" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-sky-400 via-brightPink to-neonGreen rounded-full blur-sm animate-pulse" />
                     </div>
 
                     {/* Steps Grid */}
@@ -93,12 +128,22 @@ const HowItWorks = () => {
                         {steps.map((step, index) => (
                             <div key={index} className="relative group">
                                 {/* Card */}
-                                <div className="relative bg-white rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-transparent group-hover:-translate-y-2 overflow-hidden">
+                                <div
+                                    className={`relative rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border group-hover:-translate-y-2 overflow-hidden ${
+                                        isDark
+                                            ? "bg-darkCard border-darkBorder hover:border-transparent"
+                                            : "bg-white border-gray-100 hover:border-transparent"
+                                    }`}
+                                >
                                     {/* Hover glow effect */}
                                     <div
                                         className={`absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r ${step.gradient} blur-sm`}
                                     />
-                                    <div className="absolute inset-[1px] rounded-3xl bg-white z-10" />
+                                    <div
+                                        className={`absolute inset-[1px] rounded-3xl z-10 ${
+                                            isDark ? "bg-darkCard" : "bg-white"
+                                        }`}
+                                    />
 
                                     {/* Content */}
                                     <div className="relative z-20">
@@ -121,10 +166,22 @@ const HowItWorks = () => {
                                         </div>
 
                                         {/* Text */}
-                                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+                                        <h3
+                                            className={`text-xl sm:text-2xl font-bold mb-3 ${
+                                                isDark
+                                                    ? "text-white"
+                                                    : "text-gray-900"
+                                            }`}
+                                        >
                                             {step.title}
                                         </h3>
-                                        <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+                                        <p
+                                            className={`leading-relaxed text-sm sm:text-base ${
+                                                isDark
+                                                    ? "text-gray-400"
+                                                    : "text-gray-600"
+                                            }`}
+                                        >
                                             {step.description}
                                         </p>
                                     </div>
@@ -145,7 +202,11 @@ const HowItWorks = () => {
 
                 {/* Bottom CTA */}
                 <div className="mt-16 text-center">
-                    <p className="text-gray-500 text-sm sm:text-base mb-4">
+                    <p
+                        className={`text-sm sm:text-base mb-4 ${
+                            isDark ? "text-gray-500" : "text-gray-500"
+                        }`}
+                    >
                         Ready to start your journey?
                     </p>
                     <a

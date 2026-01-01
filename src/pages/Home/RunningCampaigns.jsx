@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import CampaignCard from "../../components/CampaignCard";
 import { FaArrowRight, FaFire, FaRocket } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi";
+import { useTheme } from "../../provider/ThemeProvider";
 
 const RunningCampaigns = () => {
     const [campaigns, setCampaigns] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { isDark } = useTheme();
 
     useEffect(() => {
         fetch("https://innofund-server.vercel.app/running-campaigns")
@@ -19,33 +21,35 @@ const RunningCampaigns = () => {
     }, []);
 
     const SkeletonCard = () => (
-        <div className="relative bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100">
+        <div className={`relative rounded-3xl overflow-hidden shadow-xl border ${
+            isDark ? "bg-darkCard border-darkBorder" : "bg-white border-gray-100"
+        }`}>
             {/* Shimmer effect overlay */}
-            <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/60 to-transparent z-10" />
+            <div className={`absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent to-transparent z-10 ${isDark ? "via-white/10" : "via-white/60"}`} />
 
             {/* Image skeleton */}
-            <div className="relative h-52 sm:h-56 bg-gradient-to-br from-gray-200 via-gray-100 to-gray-200">
+            <div className={`relative h-52 sm:h-56 ${isDark ? "bg-gradient-to-br from-darkBorder via-darkCard to-darkBorder" : "bg-gradient-to-br from-gray-200 via-gray-100 to-gray-200"}`}>
                 {/* Category badge skeleton */}
-                <div className="absolute top-4 left-4 h-6 w-20 bg-gray-300/50 rounded-full" />
+                <div className={`absolute top-4 left-4 h-6 w-20 rounded-full ${isDark ? "bg-gray-600/50" : "bg-gray-300/50"}`} />
             </div>
 
             <div className="p-6">
                 {/* Title skeleton */}
-                <div className="h-7 bg-gray-200 rounded-xl w-4/5 mb-4" />
+                <div className={`h-7 rounded-xl w-4/5 mb-4 ${isDark ? "bg-darkBorder" : "bg-gray-200"}`} />
 
                 {/* Description skeleton */}
                 <div className="space-y-2 mb-6">
-                    <div className="h-4 bg-gray-100 rounded-lg w-full" />
-                    <div className="h-4 bg-gray-100 rounded-lg w-3/4" />
+                    <div className={`h-4 rounded-lg w-full ${isDark ? "bg-darkBorder/50" : "bg-gray-100"}`} />
+                    <div className={`h-4 rounded-lg w-3/4 ${isDark ? "bg-darkBorder/50" : "bg-gray-100"}`} />
                 </div>
 
                 {/* Progress bar skeleton */}
-                <div className="h-3 bg-gray-100 rounded-full w-full mb-4" />
+                <div className={`h-3 rounded-full w-full mb-4 ${isDark ? "bg-darkBorder/50" : "bg-gray-100"}`} />
 
                 {/* Stats skeleton */}
-                <div className="flex justify-between items-center pt-4 border-t border-gray-100">
-                    <div className="h-10 bg-gray-100 rounded-xl w-28" />
-                    <div className="h-10 bg-gray-100 rounded-xl w-24" />
+                <div className={`flex justify-between items-center pt-4 border-t ${isDark ? "border-darkBorder" : "border-gray-100"}`}>
+                    <div className={`h-10 rounded-xl w-28 ${isDark ? "bg-darkBorder/50" : "bg-gray-100"}`} />
+                    <div className={`h-10 rounded-xl w-24 ${isDark ? "bg-darkBorder/50" : "bg-gray-100"}`} />
                 </div>
             </div>
         </div>
@@ -54,13 +58,13 @@ const RunningCampaigns = () => {
     return (
         <section className="py-20 sm:py-28 lg:py-36 relative overflow-hidden">
             {/* Animated gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-lightPink/30 via-white to-lightPurple/20" />
+            <div className={`absolute inset-0 ${isDark ? "bg-gradient-to-b from-darkBg via-darkCard to-darkBg" : "bg-gradient-to-b from-lightPink/30 via-white to-lightPurple/20"}`} />
 
             {/* Decorative elements */}
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brightPink via-softOrange to-neonGreen" />
-            <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-gradient-to-br from-brightPink/10 to-softOrange/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-20 left-0 w-[400px] h-[400px] bg-gradient-to-br from-neonGreen/10 to-skyBlue/5 rounded-full blur-3xl" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-paleYellow/10 to-lightPink/5 rounded-full blur-3xl" />
+            <div className={`absolute top-20 right-0 w-[500px] h-[500px] rounded-full blur-3xl ${isDark ? "bg-gradient-to-br from-brightPink/5 to-softOrange/5" : "bg-gradient-to-br from-brightPink/10 to-softOrange/5"}`} />
+            <div className={`absolute bottom-20 left-0 w-[400px] h-[400px] rounded-full blur-3xl ${isDark ? "bg-gradient-to-br from-neonGreen/5 to-skyBlue/5" : "bg-gradient-to-br from-neonGreen/10 to-skyBlue/5"}`} />
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl ${isDark ? "bg-gradient-to-br from-paleYellow/5 to-lightPink/5" : "bg-gradient-to-br from-paleYellow/10 to-lightPink/5"}`} />
 
             {/* Floating particles */}
             <div
@@ -80,13 +84,17 @@ const RunningCampaigns = () => {
                 {/* Section Header */}
                 <div className="text-center mb-16 sm:mb-20">
                     {/* Trending badge */}
-                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/10 via-red-500/10 to-brightPink/10 backdrop-blur-sm text-orange-600 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 border border-orange-200/50 shadow-lg shadow-orange-500/10">
+                    <div className={`inline-flex items-center gap-2 backdrop-blur-sm text-orange-600 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-lg shadow-orange-500/10 ${
+                        isDark 
+                            ? "bg-gradient-to-r from-orange-500/20 via-red-500/20 to-brightPink/20 border border-orange-500/30"
+                            : "bg-gradient-to-r from-orange-500/10 via-red-500/10 to-brightPink/10 border border-orange-200/50"
+                    }`}>
                         <FaFire className="text-orange-500 animate-pulse" />
-                        <span>Trending Now</span>
+                        <span className={isDark ? "text-orange-400" : "text-orange-600"}>Trending Now</span>
                         <span className="w-2 h-2 rounded-full bg-orange-500 animate-ping" />
                     </div>
 
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                    <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
                         Running{" "}
                         <span className="relative inline-block">
                             <span className="bg-gradient-to-r from-brightPink via-softOrange to-brightPink bg-clip-text text-transparent">
@@ -96,7 +104,7 @@ const RunningCampaigns = () => {
                         </span>
                     </h2>
 
-                    <p className="text-gray-600 max-w-2xl mx-auto text-lg sm:text-xl">
+                    <p className={`max-w-2xl mx-auto text-lg sm:text-xl ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                         Discover active campaigns making a difference right now.
                         Your support can help turn dreams into reality.
                     </p>
@@ -165,15 +173,15 @@ const RunningCampaigns = () => {
 
                         <Link
                             to="/add-campaign"
-                            className="inline-flex items-center gap-2 text-gray-600 hover:text-brightPink font-semibold transition-colors duration-300"
+                            className={`inline-flex items-center gap-2 font-semibold transition-colors duration-300 ${isDark ? "text-gray-400 hover:text-brightPink" : "text-gray-600 hover:text-brightPink"}`}
                         >
-                            J<span>Start Your Own Campaign</span>
+                            <span>Start Your Own Campaign</span>
                             <FaArrowRight className="w-4 h-4" />
                         </Link>
                     </div>
 
                     {/* Trust indicators */}
-                    <div className="flex flex-wrap justify-center gap-4 sm:gap-8 mt-10 text-gray-400 text-sm">
+                    <div className={`flex flex-wrap justify-center gap-4 sm:gap-8 mt-10 text-sm ${isDark ? "text-gray-500" : "text-gray-400"}`}>
                         <span className="flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-neonGreen animate-pulse" />
                             Secure Donations

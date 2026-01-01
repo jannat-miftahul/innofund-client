@@ -14,6 +14,7 @@ import {
 } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
+import { useTheme } from "../../provider/ThemeProvider";
 
 // Animated Counter Component
 const AnimatedCounter = ({ target, suffix = "" }) => {
@@ -101,6 +102,7 @@ const FloatingParticles = () => {
 
 const HomePage = () => {
     const [, setScrollY] = useState(0);
+    const { isDark } = useTheme();
 
     useEffect(() => {
         const handleScroll = () => setScrollY(window.scrollY);
@@ -217,21 +219,29 @@ const HomePage = () => {
             </section>
 
             {/* Features Section - Why Choose InnoFund - Premium Bento Grid */}
-            <section className="py-20 sm:py-32 bg-gradient-to-b from-white via-lightPurple/20 to-white relative overflow-hidden">
+            <section className={`py-20 sm:py-32 relative overflow-hidden ${
+                isDark 
+                    ? "bg-gradient-to-b from-darkBg via-darkCard to-darkBg"
+                    : "bg-gradient-to-b from-white via-lightPurple/20 to-white"
+            }`}>
                 {/* Decorative elements */}
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neonGreen via-brightPink to-softOrange" />
-                <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-gradient-to-br from-brightPink/10 to-softOrange/10 rounded-full blur-3xl" />
-                <div className="absolute bottom-20 left-0 w-[400px] h-[400px] bg-gradient-to-br from-neonGreen/10 to-skyBlue/10 rounded-full blur-3xl" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-paleYellow/20 to-lightPink/10 rounded-full blur-3xl" />
+                <div className={`absolute top-20 right-0 w-[500px] h-[500px] rounded-full blur-3xl ${isDark ? "bg-gradient-to-br from-brightPink/5 to-softOrange/5" : "bg-gradient-to-br from-brightPink/10 to-softOrange/10"}`} />
+                <div className={`absolute bottom-20 left-0 w-[400px] h-[400px] rounded-full blur-3xl ${isDark ? "bg-gradient-to-br from-neonGreen/5 to-skyBlue/5" : "bg-gradient-to-br from-neonGreen/10 to-skyBlue/10"}`} />
+                <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl ${isDark ? "bg-gradient-to-br from-paleYellow/5 to-lightPink/5" : "bg-gradient-to-br from-paleYellow/20 to-lightPink/10"}`} />
 
                 <div className="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Section Header */}
                     <div className="text-center mb-16 sm:mb-20">
-                        <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-brightPink/10 to-softOrange/10 text-brightPink text-sm font-semibold mb-6 border border-brightPink/20">
+                        <span className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-brightPink text-sm font-semibold mb-6 ${
+                            isDark 
+                                ? "bg-brightPink/10 border border-brightPink/20"
+                                : "bg-gradient-to-r from-brightPink/10 to-softOrange/10 border border-brightPink/20"
+                        }`}>
                             <span className="w-2 h-2 rounded-full bg-brightPink animate-pulse" />
                             Why Choose InnoFund
                         </span>
-                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                        <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
                             Built for{" "}
                             <span className="relative inline-block">
                                 <span className="bg-gradient-to-r from-brightPink via-softOrange to-brightPink bg-clip-text text-transparent">
@@ -249,7 +259,7 @@ const HomePage = () => {
                                 </svg>
                             </span>
                         </h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto text-lg sm:text-xl">
+                        <p className={`max-w-2xl mx-auto text-lg sm:text-xl ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                             Everything you need to launch, manage, and succeed
                             with your crowdfunding campaign.
                         </p>
@@ -299,7 +309,11 @@ const HomePage = () => {
                         </div>
 
                         {/* Feature Card 2 */}
-                        <div className="group relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-neonGreen/30 overflow-hidden">
+                        <div className={`group relative rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border overflow-hidden ${
+                            isDark 
+                                ? "bg-darkCard border-darkBorder hover:border-neonGreen/30"
+                                : "bg-white border-gray-100 hover:border-neonGreen/30"
+                        }`}>
                             <div className="absolute inset-0 bg-gradient-to-br from-neonGreen/5 to-skyBlue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-neonGreen/20 to-skyBlue/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -307,15 +321,15 @@ const HomePage = () => {
                                 <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-neonGreen to-green-600 rounded-2xl mb-6 shadow-lg shadow-neonGreen/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                                     <FaGlobe className="w-7 h-7 text-white" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-neonGreen transition-colors duration-300">
+                                <h3 className={`text-xl font-bold mb-3 group-hover:text-neonGreen transition-colors duration-300 ${isDark ? "text-white" : "text-gray-900"}`}>
                                     Global Reach
                                 </h3>
-                                <p className="text-gray-600 leading-relaxed mb-4">
+                                <p className={`leading-relaxed mb-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                                     Connect with supporters from 150+ countries worldwide.
                                 </p>
                                 <div className="flex -space-x-2">
                                     {['🇺🇸', '🇬🇧', '🇯🇵', '🇩🇪', '🇫🇷'].map((flag, i) => (
-                                        <span key={i} className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 text-sm border-2 border-white">
+                                        <span key={i} className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-sm border-2 ${isDark ? "bg-darkBorder border-darkBg" : "bg-gray-100 border-white"}`}>
                                             {flag}
                                         </span>
                                     ))}
@@ -327,7 +341,11 @@ const HomePage = () => {
                         </div>
 
                         {/* Feature Card 3 */}
-                        <div className="group relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-softOrange/30 overflow-hidden">
+                        <div className={`group relative rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border overflow-hidden ${
+                            isDark 
+                                ? "bg-darkCard border-darkBorder hover:border-softOrange/30"
+                                : "bg-white border-gray-100 hover:border-softOrange/30"
+                        }`}>
                             <div className="absolute inset-0 bg-gradient-to-br from-softOrange/5 to-paleYellow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-softOrange/20 to-paleYellow/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -335,10 +353,10 @@ const HomePage = () => {
                                 <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-softOrange to-orange-500 rounded-2xl mb-6 shadow-lg shadow-softOrange/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                                     <FaChartLine className="w-7 h-7 text-white" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-softOrange transition-colors duration-300">
+                                <h3 className={`text-xl font-bold mb-3 group-hover:text-softOrange transition-colors duration-300 ${isDark ? "text-white" : "text-gray-900"}`}>
                                     Real-time Analytics
                                 </h3>
-                                <p className="text-gray-600 leading-relaxed mb-4">
+                                <p className={`leading-relaxed mb-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                                     Track performance with detailed insights and metrics.
                                 </p>
                                 {/* Mini chart visualization */}
@@ -491,9 +509,9 @@ const HomePage = () => {
             <Testimonials />
 
             {/* Newsletter Section - New */}
-            <section className="py-16 sm:py-20 bg-gradient-to-b from-gray-50 to-white">
+            <section className={`py-16 sm:py-20 ${isDark ? "bg-gradient-to-b from-darkBg to-darkCard" : "bg-gradient-to-b from-gray-50 to-white"}`}>
                 <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 sm:p-12 lg:p-16 overflow-hidden">
+                    <div className={`relative rounded-3xl p-8 sm:p-12 lg:p-16 overflow-hidden ${isDark ? "bg-gradient-to-br from-darkCard to-darkBorder" : "bg-gradient-to-br from-slate-900 to-slate-800"}`}>
                         {/* Decorative elements */}
                         <div className="absolute top-0 right-0 w-64 h-64 bg-brightPink/20 rounded-full blur-3xl" />
                         <div className="absolute bottom-0 left-0 w-64 h-64 bg-neonGreen/20 rounded-full blur-3xl" />
