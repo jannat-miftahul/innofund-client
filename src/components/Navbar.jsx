@@ -5,20 +5,13 @@ import { AuthContext } from "../provider/AuthProvider";
 import { useTheme } from "../provider/ThemeProvider";
 import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
 import { RiCloseLine, RiSearchLine, RiSparklingFill } from "react-icons/ri";
-import {
-    IoRocketSharp,
-    IoChevronDown,
-    IoWallet,
-    IoHeart,
-    IoAddCircle,
-    IoSunny,
-    IoMoon,
-} from "react-icons/io5";
+import { IoRocketSharp, IoChevronDown, IoWallet, IoHeart, IoAddCircle, IoSunny, IoMoon } from "react-icons/io5";
 import { HiOutlineBell } from "react-icons/hi2";
+import logo from "../assets/innofund-logo.png"
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-    const { theme, toggleTheme, isDark } = useTheme();
+    const { toggleTheme, isDark } = useTheme();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -88,12 +81,10 @@ const Navbar = () => {
         <NavLink
             to={to}
             className={({ isActive }) =>
-                `relative group flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-all duration-300 rounded-2xl ${
-                    isMobile ? "w-full" : ""
-                } ${
-                    isActive
-                        ? "text-white bg-gradient-to-r from-brightPink to-coral shadow-lg shadow-brightPink/25"
-                        : isDark
+                `relative group flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-all duration-300 rounded-2xl ${isMobile ? "w-full" : ""
+                } ${isActive
+                    ? "text-white bg-gradient-to-r from-brightPink to-coral shadow-lg shadow-brightPink/25"
+                    : isDark
                         ? "text-gray-300 hover:text-brightPink hover:bg-brightPink/10"
                         : "text-gray-700 hover:text-brightPink hover:bg-brightPink/10"
                 }`
@@ -116,15 +107,14 @@ const Navbar = () => {
     return (
         <>
             <header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-                    isScrolled
-                        ? isDark
-                            ? "bg-darkBg/80 backdrop-blur-2xl shadow-xl shadow-black/20 border-b border-darkBorder/50"
-                            : "bg-white/70 backdrop-blur-2xl shadow-xl shadow-gray-200/40 border-b border-white/50"
-                        : isDark
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+                    ? isDark
+                        ? "bg-darkBg/80 backdrop-blur-2xl shadow-xl shadow-black/20 border-b border-darkBorder/50"
+                        : "bg-white/70 backdrop-blur-2xl shadow-xl shadow-gray-200/40 border-b border-white/50"
+                    : isDark
                         ? "bg-gradient-to-r from-darkBg/60 via-darkCard/40 to-darkBg/60 backdrop-blur-xl"
                         : "bg-gradient-to-r from-paleYellow/40 via-white/60 to-softOrange/40 backdrop-blur-xl"
-                }`}
+                    }`}
             >
                 {/* Animated shimmer border */}
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-brightPink to-neonGreen bg-[length:200%_100%] animate-shimmer" />
@@ -139,14 +129,11 @@ const Navbar = () => {
                             to="/"
                             className="group flex items-center gap-3"
                         >
-                            <div className="font-pacifico text-xl sm:text-2xl lg:text-3xl">
-                                <span className="bg-gradient-to-r from-violet to-brightPink bg-clip-text text-transparent drop-shadow-sm">
-                                    Inno
-                                </span>
-                                <span className="bg-gradient-to-r from-brightPink to-softOrange bg-clip-text text-transparent drop-shadow-sm">
-                                    Fund
-                                </span>
-                            </div>
+                            <img
+                                src={logo}
+                                alt="InnoFund Logo"
+                                className="h-8 sm:h-16 w-auto object-contain"
+                            />
                         </NavLink>
 
                         {/* Desktop Navigation */}
@@ -161,47 +148,42 @@ const Navbar = () => {
                             {/* Theme Toggle Button */}
                             <button
                                 onClick={toggleTheme}
-                                className={`relative p-2.5 rounded-full transition-all duration-500 group overflow-hidden ${
-                                    isDark
-                                        ? "bg-darkCard hover:bg-darkBorder border border-darkBorder"
-                                        : "bg-gray-100/80 hover:bg-white hover:shadow-md"
-                                }`}
+                                className={`relative p-2.5 rounded-full transition-all duration-500 group overflow-hidden ${isDark
+                                    ? "bg-darkCard hover:bg-darkBorder border border-darkBorder"
+                                    : "bg-gray-100/80 hover:bg-white hover:shadow-md"
+                                    }`}
                                 aria-label="Toggle theme"
                             >
                                 <div className="relative w-5 h-5">
                                     <IoSunny
-                                        className={`absolute inset-0 w-5 h-5 text-yellow-500 transition-all duration-500 ${
-                                            isDark
-                                                ? "rotate-0 scale-100 opacity-100"
-                                                : "-rotate-90 scale-0 opacity-0"
-                                        }`}
+                                        className={`absolute inset-0 w-5 h-5 text-yellow-500 transition-all duration-500 ${isDark
+                                            ? "rotate-0 scale-100 opacity-100"
+                                            : "-rotate-90 scale-0 opacity-0"
+                                            }`}
                                     />
                                     <IoMoon
-                                        className={`absolute inset-0 w-5 h-5 text-violet transition-all duration-500 ${
-                                            isDark
-                                                ? "rotate-90 scale-0 opacity-0"
-                                                : "rotate-0 scale-100 opacity-100"
-                                        }`}
+                                        className={`absolute inset-0 w-5 h-5 text-violet transition-all duration-500 ${isDark
+                                            ? "rotate-90 scale-0 opacity-0"
+                                            : "rotate-0 scale-100 opacity-100"
+                                            }`}
                                     />
                                 </div>
                             </button>
 
                             {/* Search Button - Desktop */}
                             <div
-                                className={`hidden md:flex items-center transition-all duration-300 ${
-                                    isSearchFocused ? "w-64" : "w-44"
-                                }`}
+                                className={`hidden md:flex items-center transition-all duration-300 ${isSearchFocused ? "w-64" : "w-44"
+                                    }`}
                             >
                                 <div className="relative w-full">
                                     <RiSearchLine className={`absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 ${isDark ? "text-gray-500" : "text-gray-400"}`} />
                                     <input
                                         type="text"
                                         placeholder="Search campaigns..."
-                                        className={`w-full pl-10 pr-4 py-2.5 border border-transparent rounded-full text-sm outline-none focus:ring-2 focus:ring-brightPink/20 transition-all duration-300 ${
-                                            isDark
-                                                ? "bg-darkCard/80 hover:bg-darkCard focus:bg-darkCard focus:border-brightPink/30 text-gray-200 placeholder-gray-500"
-                                                : "bg-gray-100/80 hover:bg-white focus:bg-white focus:border-brightPink/30 text-gray-700 placeholder-gray-400"
-                                        }`}
+                                        className={`w-full pl-10 pr-4 py-2.5 border border-transparent rounded-full text-sm outline-none focus:ring-2 focus:ring-brightPink/20 transition-all duration-300 ${isDark
+                                            ? "bg-darkCard/80 hover:bg-darkCard focus:bg-darkCard focus:border-brightPink/30 text-gray-200 placeholder-gray-500"
+                                            : "bg-gray-100/80 hover:bg-white focus:bg-white focus:border-brightPink/30 text-gray-700 placeholder-gray-400"
+                                            }`}
                                         onFocus={() => setIsSearchFocused(true)}
                                         onBlur={() => setIsSearchFocused(false)}
                                     />
@@ -232,11 +214,10 @@ const Navbar = () => {
                                                     !isUserMenuOpen
                                                 )
                                             }
-                                            className={`flex items-center gap-2 p-1.5 pr-3 rounded-full border transition-all duration-300 ${
-                                                isDark
-                                                    ? "bg-darkCard hover:bg-darkBorder border-darkBorder hover:border-gray-600"
-                                                    : "bg-gray-100/80 hover:bg-white hover:shadow-md border-transparent hover:border-gray-200"
-                                            }`}
+                                            className={`flex items-center gap-2 p-1.5 pr-3 rounded-full border transition-all duration-300 ${isDark
+                                                ? "bg-darkCard hover:bg-darkBorder border-darkBorder hover:border-gray-600"
+                                                : "bg-gray-100/80 hover:bg-white hover:shadow-md border-transparent hover:border-gray-200"
+                                                }`}
                                         >
                                             <div className="relative">
                                                 <img
@@ -250,25 +231,22 @@ const Navbar = () => {
                                                 <div className={`absolute bottom-0 right-0 w-2.5 h-2.5 bg-neonGreen rounded-full border-2 ${isDark ? "border-darkBg" : "border-white"}`} />
                                             </div>
                                             <IoChevronDown
-                                                className={`w-4 h-4 transition-transform duration-300 ${
-                                                    isUserMenuOpen
-                                                        ? "rotate-180"
-                                                        : ""
-                                                } ${isDark ? "text-gray-400" : "text-gray-500"}`}
+                                                className={`w-4 h-4 transition-transform duration-300 ${isUserMenuOpen
+                                                    ? "rotate-180"
+                                                    : ""
+                                                    } ${isDark ? "text-gray-400" : "text-gray-500"}`}
                                             />
                                         </button>
 
                                         {/* Dropdown Menu */}
                                         <div
-                                            className={`absolute top-full right-0 mt-3 w-72 backdrop-blur-xl rounded-2xl shadow-2xl border overflow-hidden transition-all duration-300 origin-top-right ${
-                                                isUserMenuOpen
-                                                    ? "scale-100 opacity-100 visible"
-                                                    : "scale-95 opacity-0 invisible"
-                                            } ${
-                                                isDark
+                                            className={`absolute top-full right-0 mt-3 w-72 backdrop-blur-xl rounded-2xl shadow-2xl border overflow-hidden transition-all duration-300 origin-top-right ${isUserMenuOpen
+                                                ? "scale-100 opacity-100 visible"
+                                                : "scale-95 opacity-0 invisible"
+                                                } ${isDark
                                                     ? "bg-darkCard/95 border-darkBorder shadow-black/30"
                                                     : "bg-white/95 border-gray-100 shadow-gray-200/50"
-                                            }`}
+                                                }`}
                                         >
                                             {/* User Info */}
                                             <div className={`p-4 bg-gradient-to-br from-brightPink/10 via-teal/5 to-neonGreen/10 border-b ${isDark ? "border-darkBorder" : "border-gray-100"}`}>
@@ -342,11 +320,10 @@ const Navbar = () => {
                                 <div className="hidden sm:flex items-center gap-3">
                                     <Link
                                         to="/auth/signin"
-                                        className={`group relative flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-sm border overflow-hidden transition-all duration-300 hover:border-brightPink hover:text-brightPink hover:shadow-md ${
-                                            isDark
-                                                ? "bg-darkCard text-gray-300 border-darkBorder"
-                                                : "bg-white text-gray-700 border-gray-200"
-                                        }`}
+                                        className={`group relative flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-sm border overflow-hidden transition-all duration-300 hover:border-brightPink hover:text-brightPink hover:shadow-md ${isDark
+                                            ? "bg-darkCard text-gray-300 border-darkBorder"
+                                            : "bg-white text-gray-700 border-gray-200"
+                                            }`}
                                     >
                                         <span className="relative">
                                             Sign in
@@ -370,35 +347,30 @@ const Navbar = () => {
                                 onClick={() =>
                                     setIsMobileMenuOpen(!isMobileMenuOpen)
                                 }
-                                className={`lg:hidden relative w-11 h-11 flex items-center justify-center rounded-2xl shadow-sm hover:shadow-md border transition-all duration-300 ${
-                                    isDark
-                                        ? "bg-darkCard hover:bg-darkBorder border-darkBorder"
-                                        : "bg-white/80 hover:bg-white border-gray-200/50"
-                                }`}
+                                className={`lg:hidden relative w-11 h-11 flex items-center justify-center rounded-2xl shadow-sm hover:shadow-md border transition-all duration-300 ${isDark
+                                    ? "bg-darkCard hover:bg-darkBorder border-darkBorder"
+                                    : "bg-white/80 hover:bg-white border-gray-200/50"
+                                    }`}
                             >
                                 <div
-                                    className={`w-5 h-5 flex flex-col justify-center items-center gap-1.5 transition-all duration-300 ${
-                                        isMobileMenuOpen ? "rotate-90" : ""
-                                    }`}
+                                    className={`w-5 h-5 flex flex-col justify-center items-center gap-1.5 transition-all duration-300 ${isMobileMenuOpen ? "rotate-90" : ""
+                                        }`}
                                 >
                                     <span
-                                        className={`w-5 h-0.5 rounded-full transition-all duration-300 ${isDark ? "bg-gray-300" : "bg-gray-700"} ${
-                                            isMobileMenuOpen
-                                                ? "rotate-45 translate-y-2"
-                                                : ""
-                                        }`}
+                                        className={`w-5 h-0.5 rounded-full transition-all duration-300 ${isDark ? "bg-gray-300" : "bg-gray-700"} ${isMobileMenuOpen
+                                            ? "rotate-45 translate-y-2"
+                                            : ""
+                                            }`}
                                     />
                                     <span
-                                        className={`w-5 h-0.5 rounded-full transition-all duration-300 ${isDark ? "bg-gray-300" : "bg-gray-700"} ${
-                                            isMobileMenuOpen ? "opacity-0" : ""
-                                        }`}
+                                        className={`w-5 h-0.5 rounded-full transition-all duration-300 ${isDark ? "bg-gray-300" : "bg-gray-700"} ${isMobileMenuOpen ? "opacity-0" : ""
+                                            }`}
                                     />
                                     <span
-                                        className={`w-5 h-0.5 rounded-full transition-all duration-300 ${isDark ? "bg-gray-300" : "bg-gray-700"} ${
-                                            isMobileMenuOpen
-                                                ? "-rotate-45 -translate-y-2"
-                                                : ""
-                                        }`}
+                                        className={`w-5 h-0.5 rounded-full transition-all duration-300 ${isDark ? "bg-gray-300" : "bg-gray-700"} ${isMobileMenuOpen
+                                            ? "-rotate-45 -translate-y-2"
+                                            : ""
+                                            }`}
                                     />
                                 </div>
                             </button>
@@ -409,11 +381,10 @@ const Navbar = () => {
 
             {/* Mobile Menu Overlay */}
             <div
-                className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${
-                    isMobileMenuOpen
-                        ? "opacity-100 visible"
-                        : "opacity-0 invisible"
-                }`}
+                className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${isMobileMenuOpen
+                    ? "opacity-100 visible"
+                    : "opacity-0 invisible"
+                    }`}
             >
                 {/* Backdrop */}
                 <div
@@ -423,9 +394,8 @@ const Navbar = () => {
 
                 {/* Menu Panel */}
                 <div
-                    className={`absolute top-0 right-0 w-[300px] sm:w-[350px] h-full backdrop-blur-xl shadow-2xl transform transition-all duration-500 ease-out ${
-                        isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-                    } ${isDark ? "bg-darkBg/95" : "bg-white/95"}`}
+                    className={`absolute top-0 right-0 w-[300px] sm:w-[350px] h-full backdrop-blur-xl shadow-2xl transform transition-all duration-500 ease-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+                        } ${isDark ? "bg-darkBg/95" : "bg-white/95"}`}
                 >
                     <div className="flex flex-col h-full">
                         {/* Menu Header */}
@@ -453,11 +423,10 @@ const Navbar = () => {
                                 <input
                                     type="text"
                                     placeholder="Search campaigns..."
-                                    className={`w-full pl-12 pr-4 py-3.5 rounded-2xl text-sm outline-none focus:ring-2 focus:ring-brightPink/30 transition-all ${
-                                        isDark
-                                            ? "bg-darkCard text-gray-200 placeholder-gray-500"
-                                            : "bg-gray-100 text-gray-700 placeholder-gray-400"
-                                    }`}
+                                    className={`w-full pl-12 pr-4 py-3.5 rounded-2xl text-sm outline-none focus:ring-2 focus:ring-brightPink/30 transition-all ${isDark
+                                        ? "bg-darkCard text-gray-200 placeholder-gray-500"
+                                        : "bg-gray-100 text-gray-700 placeholder-gray-400"
+                                        }`}
                                 />
                             </div>
                         </div>

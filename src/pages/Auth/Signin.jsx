@@ -142,11 +142,10 @@ const Signin = () => {
                                             type="email"
                                             name="email"
                                             placeholder="name@example.com"
-                                            className={`w-full px-4 py-3.5 border-2 rounded-xl transition-all duration-300 focus:outline-none focus:border-brightPink focus:shadow-lg focus:shadow-brightPink/10 ${
-                                                isDark 
-                                                    ? "bg-darkBg/50 border-darkBorder text-white placeholder-gray-500 focus:bg-darkBg" 
-                                                    : "bg-white/50 border-gray-200 text-gray-800 placeholder-gray-400 focus:bg-white"
-                                            }`}
+                                            className={`w-full px-4 py-3.5 border-2 rounded-xl transition-all duration-300 focus:outline-none focus:border-brightPink focus:shadow-lg focus:shadow-brightPink/10 ${isDark
+                                                ? "bg-darkBg/50 border-darkBorder text-white placeholder-gray-500 focus:bg-darkBg"
+                                                : "bg-white/50 border-gray-200 text-gray-800 placeholder-gray-400 focus:bg-white"
+                                                }`}
                                             required
                                         />
                                         <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-brightPink to-softOrange opacity-0 group-focus-within/input:opacity-100 transition-opacity duration-300 -z-10 blur-sm" />
@@ -164,11 +163,10 @@ const Signin = () => {
                                             type="password"
                                             name="password"
                                             placeholder="Enter your password"
-                                            className={`w-full px-4 py-3.5 border-2 rounded-xl transition-all duration-300 focus:outline-none focus:border-brightPink focus:shadow-lg focus:shadow-brightPink/10 ${
-                                                isDark 
-                                                    ? "bg-darkBg/50 border-darkBorder text-white placeholder-gray-500 focus:bg-darkBg" 
-                                                    : "bg-white/50 border-gray-200 text-gray-800 placeholder-gray-400 focus:bg-white"
-                                            }`}
+                                            className={`w-full px-4 py-3.5 border-2 rounded-xl transition-all duration-300 focus:outline-none focus:border-brightPink focus:shadow-lg focus:shadow-brightPink/10 ${isDark
+                                                ? "bg-darkBg/50 border-darkBorder text-white placeholder-gray-500 focus:bg-darkBg"
+                                                : "bg-white/50 border-gray-200 text-gray-800 placeholder-gray-400 focus:bg-white"
+                                                }`}
                                             required
                                         />
                                     </div>
@@ -230,11 +228,10 @@ const Signin = () => {
                                 <button
                                     type="button"
                                     onClick={handleGoogleSignIn}
-                                    className={`group relative w-full py-4 border-2 font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02] ${
-                                        isDark 
-                                            ? "bg-darkBg border-darkBorder text-gray-300 hover:border-gray-600" 
-                                            : "bg-white border-gray-200 text-gray-700 hover:border-gray-300"
-                                    }`}
+                                    className={`group relative w-full py-4 border-2 font-semibold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02] ${isDark
+                                        ? "bg-darkBg border-darkBorder text-gray-300 hover:border-gray-600"
+                                        : "bg-white border-gray-200 text-gray-700 hover:border-gray-300"
+                                        }`}
                                 >
                                     <span className="relative flex items-center justify-center gap-3">
                                         <FcGoogle className="w-6 h-6" />

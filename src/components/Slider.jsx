@@ -6,14 +6,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import "../styles.css";
-import {
-    Autoplay,
-    Pagination,
-    Navigation,
-    EffectFade,
-    Parallax,
-} from "swiper/modules";
-import { IoArrowForward, IoSparkles } from "react-icons/io5";
+import { Autoplay, Pagination, Navigation, EffectFade, Parallax } from "swiper/modules";
+import { IoArrowForward } from "react-icons/io5";
 
 const Slider = () => {
     const [campaigns, setCampaigns] = useState([]);
@@ -80,7 +74,7 @@ const Slider = () => {
                 speed={1000}
                 parallax={true}
                 autoplay={{
-                    delay: 5000,
+                    delay: 2000,
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
                 }}
@@ -140,17 +134,6 @@ const Slider = () => {
                             {/* Content */}
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <div className="text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-                                    {/* Category Badge */}
-                                    <div
-                                        className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-6 animate-fadeInDown"
-                                        data-swiper-parallax="-100"
-                                    >
-                                        <IoSparkles className="w-4 h-4 text-neonGreen" />
-                                        <span className="text-white/90 text-sm font-medium tracking-wide">
-                                            Featured Campaign
-                                        </span>
-                                    </div>
-
                                     {/* Title with Gradient */}
                                     <h1
                                         className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight animate-fadeInUp"

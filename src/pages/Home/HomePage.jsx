@@ -85,16 +85,14 @@ const FloatingParticles = () => {
                     style={{
                         width: `${Math.random() * 20 + 10}px`,
                         height: `${Math.random() * 20 + 10}px`,
-                        background: `linear-gradient(135deg, ${
-                            ["#DB2777", "#84CC16", "#FDBA74", "#BAE6FD"][
-                                Math.floor(Math.random() * 4)
+                        background: `linear-gradient(135deg, ${["#DB2777", "#84CC16", "#FDBA74", "#BAE6FD"][
+                            Math.floor(Math.random() * 4)
                             ]
-                        }, transparent)`,
+                            }, transparent)`,
                         left: `${Math.random() * 100}%`,
                         top: `${Math.random() * 100}%`,
-                        animation: `float ${
-                            Math.random() * 10 + 10
-                        }s ease-in-out infinite`,
+                        animation: `float ${Math.random() * 10 + 10
+                            }s ease-in-out infinite`,
                         animationDelay: `${Math.random() * 5}s`,
                     }}
                 />
@@ -221,53 +219,47 @@ const HomePage = () => {
 
             {/* Features Section - Why Choose InnoFund - Premium Bento Grid */}
             <section
-                className={`py-12 sm:py-20 lg:py-32 relative overflow-hidden ${
-                    isDark
+                className={`py-12 sm:py-20 lg:py-32 relative overflow-hidden ${isDark
                         ? "bg-gradient-to-b from-darkBg via-darkCard to-darkBg"
                         : "bg-gradient-to-b from-white via-lightPurple/20 to-white"
-                }`}
+                    }`}
             >
                 {/* Decorative elements */}
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neonGreen via-brightPink to-softOrange" />
                 <div
-                    className={`absolute top-20 right-0 w-64 sm:w-[400px] lg:w-[500px] h-64 sm:h-[400px] lg:h-[500px] rounded-full blur-3xl ${
-                        isDark
+                    className={`absolute top-20 right-0 w-64 sm:w-[400px] lg:w-[500px] h-64 sm:h-[400px] lg:h-[500px] rounded-full blur-3xl ${isDark
                             ? "bg-gradient-to-br from-brightPink/5 to-softOrange/5"
                             : "bg-gradient-to-br from-brightPink/10 to-softOrange/10"
-                    }`}
+                        }`}
                 />
                 <div
-                    className={`absolute bottom-20 left-0 w-48 sm:w-[300px] lg:w-[400px] h-48 sm:h-[300px] lg:h-[400px] rounded-full blur-3xl ${
-                        isDark
+                    className={`absolute bottom-20 left-0 w-48 sm:w-[300px] lg:w-[400px] h-48 sm:h-[300px] lg:h-[400px] rounded-full blur-3xl ${isDark
                             ? "bg-gradient-to-br from-neonGreen/5 to-skyBlue/5"
                             : "bg-gradient-to-br from-neonGreen/10 to-skyBlue/10"
-                    }`}
+                        }`}
                 />
                 <div
-                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-[400px] lg:w-[600px] h-64 sm:h-[400px] lg:h-[600px] rounded-full blur-3xl ${
-                        isDark
+                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-[400px] lg:w-[600px] h-64 sm:h-[400px] lg:h-[600px] rounded-full blur-3xl ${isDark
                             ? "bg-gradient-to-br from-paleYellow/5 to-lightPink/5"
                             : "bg-gradient-to-br from-paleYellow/20 to-lightPink/10"
-                    }`}
+                        }`}
                 />
 
                 <div className="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Section Header */}
                     <div className="text-center mb-10 sm:mb-16 lg:mb-20">
                         <span
-                            className={`inline-flex items-center gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-brightPink text-xs sm:text-sm font-semibold mb-4 sm:mb-6 ${
-                                isDark
+                            className={`inline-flex items-center gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-brightPink text-xs sm:text-sm font-semibold mb-4 sm:mb-6 ${isDark
                                     ? "bg-brightPink/10 border border-brightPink/20"
                                     : "bg-gradient-to-r from-brightPink/10 to-softOrange/10 border border-brightPink/20"
-                            }`}
+                                }`}
                         >
                             <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-brightPink animate-pulse" />
                             Why Choose InnoFund
                         </span>
                         <h2
-                            className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 ${
-                                isDark ? "text-white" : "text-gray-900"
-                            }`}
+                            className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 ${isDark ? "text-white" : "text-gray-900"
+                                }`}
                         >
                             Built for{" "}
                             <span className="relative inline-block">
@@ -311,9 +303,8 @@ const HomePage = () => {
                             </span>
                         </h2>
                         <p
-                            className={`max-w-2xl mx-auto text-sm sm:text-lg lg:text-xl px-4 ${
-                                isDark ? "text-gray-400" : "text-gray-600"
-                            }`}
+                            className={`max-w-2xl mx-auto text-sm sm:text-lg lg:text-xl px-4 ${isDark ? "text-gray-400" : "text-gray-600"
+                                }`}
                         >
                             Everything you need to launch, manage, and succeed
                             with your crowdfunding campaign.
@@ -378,11 +369,10 @@ const HomePage = () => {
 
                         {/* Feature Card 2 */}
                         <div
-                            className={`group relative rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border overflow-hidden ${
-                                isDark
+                            className={`group relative rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border overflow-hidden ${isDark
                                     ? "bg-darkCard border-darkBorder hover:border-neonGreen/30"
                                     : "bg-white border-gray-100 hover:border-neonGreen/30"
-                            }`}
+                                }`}
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-neonGreen/5 to-skyBlue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             <div className="absolute -top-10 -right-10 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-neonGreen/20 to-skyBlue/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -392,18 +382,16 @@ const HomePage = () => {
                                     <FaGlobe className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
                                 </div>
                                 <h3
-                                    className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 group-hover:text-neonGreen transition-colors duration-300 ${
-                                        isDark ? "text-white" : "text-gray-900"
-                                    }`}
+                                    className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 group-hover:text-neonGreen transition-colors duration-300 ${isDark ? "text-white" : "text-gray-900"
+                                        }`}
                                 >
                                     Global Reach
                                 </h3>
                                 <p
-                                    className={`text-sm sm:text-base leading-relaxed mb-3 sm:mb-4 ${
-                                        isDark
+                                    className={`text-sm sm:text-base leading-relaxed mb-3 sm:mb-4 ${isDark
                                             ? "text-gray-400"
                                             : "text-gray-600"
-                                    }`}
+                                        }`}
                                 >
                                     Connect with supporters from 150+ countries
                                     worldwide.
@@ -413,11 +401,10 @@ const HomePage = () => {
                                         (flag, i) => (
                                             <span
                                                 key={i}
-                                                className={`inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full text-xs sm:text-sm border-2 ${
-                                                    isDark
+                                                className={`inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full text-xs sm:text-sm border-2 ${isDark
                                                         ? "bg-darkBorder border-darkBg"
                                                         : "bg-gray-100 border-white"
-                                                }`}
+                                                    }`}
                                             >
                                                 {flag}
                                             </span>
@@ -432,11 +419,10 @@ const HomePage = () => {
 
                         {/* Feature Card 3 */}
                         <div
-                            className={`group relative rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border overflow-hidden ${
-                                isDark
+                            className={`group relative rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border overflow-hidden ${isDark
                                     ? "bg-darkCard border-darkBorder hover:border-softOrange/30"
                                     : "bg-white border-gray-100 hover:border-softOrange/30"
-                            }`}
+                                }`}
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-softOrange/5 to-paleYellow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             <div className="absolute -top-10 -right-10 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-softOrange/20 to-paleYellow/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -446,18 +432,16 @@ const HomePage = () => {
                                     <FaChartLine className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
                                 </div>
                                 <h3
-                                    className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 group-hover:text-softOrange transition-colors duration-300 ${
-                                        isDark ? "text-white" : "text-gray-900"
-                                    }`}
+                                    className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 group-hover:text-softOrange transition-colors duration-300 ${isDark ? "text-white" : "text-gray-900"
+                                        }`}
                                 >
                                     Real-time Analytics
                                 </h3>
                                 <p
-                                    className={`text-sm sm:text-base leading-relaxed mb-3 sm:mb-4 ${
-                                        isDark
+                                    className={`text-sm sm:text-base leading-relaxed mb-3 sm:mb-4 ${isDark
                                             ? "text-gray-400"
                                             : "text-gray-600"
-                                    }`}
+                                        }`}
                                 >
                                     Track performance with detailed insights and
                                     metrics.
@@ -625,19 +609,17 @@ const HomePage = () => {
 
             {/* Newsletter Section - New */}
             <section
-                className={`py-12 sm:py-16 lg:py-20 ${
-                    isDark
+                className={`py-12 sm:py-16 lg:py-20 ${isDark
                         ? "bg-gradient-to-b from-darkBg to-darkCard"
                         : "bg-gradient-to-b from-gray-50 to-white"
-                }`}
+                    }`}
             >
                 <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div
-                        className={`relative rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-16 overflow-hidden ${
-                            isDark
+                        className={`relative rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-16 overflow-hidden ${isDark
                                 ? "bg-gradient-to-br from-darkCard to-darkBorder"
                                 : "bg-gradient-to-br from-slate-900 to-slate-800"
-                        }`}
+                            }`}
                     >
                         {/* Decorative elements */}
                         <div className="absolute top-0 right-0 w-32 sm:w-48 lg:w-64 h-32 sm:h-48 lg:h-64 bg-brightPink/20 rounded-full blur-3xl" />
