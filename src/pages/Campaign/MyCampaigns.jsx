@@ -5,7 +5,8 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { useTheme } from "../../provider/ThemeProvider";
 import { FiEdit3 } from "react-icons/fi";
 import { AiOutlineDelete } from "react-icons/ai";
-import { HiSparkles, HiOutlineDocumentText, HiOutlineCurrencyDollar, HiOutlineCalendar, HiPlus } from "react-icons/hi";
+import { HiOutlineDocumentText, HiOutlineCurrencyDollar, HiOutlineCalendar, HiPlus } from "react-icons/hi";
+import { VscLayersActive } from "react-icons/vsc";
 import { FaRocket, FaLayerGroup } from "react-icons/fa";
 
 const MyCampaigns = () => {
@@ -109,7 +110,7 @@ const MyCampaigns = () => {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
                     {[
                         { label: "Total Campaigns", value: campaigns.length, icon: FaLayerGroup, color: "text-violet" },
-                        { label: "Active", value: campaigns.filter(c => new Date(c.deadline) > new Date()).length, icon: HiSparkles, color: "text-neonGreen" },
+                        { label: "Active", value: campaigns.filter(c => new Date(c.deadline) > new Date()).length, icon: VscLayersActive, color: "text-neonGreen" },
                         { label: "Ended", value: campaigns.filter(c => new Date(c.deadline) <= new Date()).length, icon: HiOutlineCalendar, color: "text-softOrange" },
                         { label: "Total Goal", value: `$${campaigns.reduce((acc, c) => acc + Number(c.minDonation || 0), 0).toLocaleString()}`, icon: HiOutlineCurrencyDollar, color: "text-brightPink" },
                     ].map((stat, index) => (

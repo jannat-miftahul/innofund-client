@@ -1,14 +1,7 @@
 import {
-    FaBullseye,
-    FaLightbulb,
-    FaUsers,
-    FaRocket,
-    FaHeart,
-    FaShieldAlt,
-    FaGlobe,
-    FaArrowRight,
+    FaBullseye, FaLightbulb, FaUsers, FaRocket,
+    FaHeart, FaShieldAlt, FaGlobe, FaArrowRight
 } from "react-icons/fa";
-import { HiSparkles } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { useTheme } from "../provider/ThemeProvider";
 
@@ -66,26 +59,22 @@ const About = () => {
         <div className="min-h-screen relative overflow-hidden">
             {/* Background Decorations */}
             <div
-                className={`absolute inset-0 ${
-                    isDark
-                        ? "bg-gradient-to-b from-darkBg via-darkCard/30 to-darkBg"
-                        : "bg-gradient-to-b from-lightPink/20 via-white to-lightPurple/20"
-                }`}
+                className={`absolute inset-0 ${isDark
+                    ? "bg-gradient-to-b from-darkBg via-darkCard/30 to-darkBg"
+                    : "bg-gradient-to-b from-lightPink/20 via-white to-lightPurple/20"
+                    }`}
             />
             <div
-                className={`absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-3xl ${
-                    isDark ? "bg-brightPink/5" : "bg-brightPink/10"
-                }`}
+                className={`absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-3xl ${isDark ? "bg-brightPink/5" : "bg-brightPink/10"
+                    }`}
             />
             <div
-                className={`absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-3xl ${
-                    isDark ? "bg-neonGreen/5" : "bg-neonGreen/10"
-                }`}
+                className={`absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-3xl ${isDark ? "bg-neonGreen/5" : "bg-neonGreen/10"
+                    }`}
             />
             <div
-                className={`absolute top-1/3 left-1/4 w-[400px] h-[400px] rounded-full blur-3xl ${
-                    isDark ? "bg-violet/5" : "bg-violet/5"
-                }`}
+                className={`absolute top-1/3 left-1/4 w-[400px] h-[400px] rounded-full blur-3xl ${isDark ? "bg-violet/5" : "bg-violet/5"
+                    }`}
             />
 
             {/* Floating Particles */}
@@ -107,9 +96,8 @@ const About = () => {
                 <div className="text-center mb-20">
                     {/* Title */}
                     <h1
-                        className={`text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 ${
-                            isDark ? "text-white" : "text-gray-900"
-                        }`}
+                        className={`text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"
+                            }`}
                     >
                         Empowering Dreams,{" "}
                         <span className="relative inline-block">
@@ -152,9 +140,8 @@ const About = () => {
                     </h1>
 
                     <p
-                        className={`max-w-3xl mx-auto text-lg sm:text-xl leading-relaxed mb-12 ${
-                            isDark ? "text-gray-400" : "text-gray-600"
-                        }`}
+                        className={`max-w-3xl mx-auto text-lg sm:text-xl leading-relaxed mb-12 ${isDark ? "text-gray-400" : "text-gray-600"
+                            }`}
                     >
                         InnoFund is where visionaries meet supporters.
                         We&apos;re building the future of crowdfunding by
@@ -167,11 +154,10 @@ const About = () => {
                         {stats.map((stat, index) => (
                             <div
                                 key={index}
-                                className={`relative group p-6 rounded-2xl border backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl ${
-                                    isDark
-                                        ? "bg-darkCard/50 border-darkBorder hover:border-brightPink/30"
-                                        : "bg-white/80 border-gray-100 hover:border-brightPink/30 shadow-lg"
-                                }`}
+                                className={`relative group p-6 rounded-2xl border backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl ${isDark
+                                    ? "bg-darkCard/50 border-darkBorder hover:border-brightPink/30"
+                                    : "bg-white/80 border-gray-100 hover:border-brightPink/30 shadow-lg"
+                                    }`}
                             >
                                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brightPink/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 <p
@@ -180,11 +166,10 @@ const About = () => {
                                     {stat.value}
                                 </p>
                                 <p
-                                    className={`text-sm font-medium ${
-                                        isDark
-                                            ? "text-gray-500"
-                                            : "text-gray-500"
-                                    }`}
+                                    className={`text-sm font-medium ${isDark
+                                        ? "text-gray-500"
+                                        : "text-gray-500"
+                                        }`}
                                 >
                                     {stat.label}
                                 </p>
@@ -196,11 +181,10 @@ const About = () => {
                 {/* Mission Section */}
                 <div className="relative mb-20">
                     <div
-                        className={`relative overflow-hidden rounded-3xl border backdrop-blur-sm ${
-                            isDark
-                                ? "bg-darkCard/80 border-darkBorder"
-                                : "bg-white/90 border-gray-100 shadow-2xl"
-                        }`}
+                        className={`relative overflow-hidden rounded-3xl border backdrop-blur-sm ${isDark
+                            ? "bg-darkCard/80 border-darkBorder"
+                            : "bg-white/90 border-gray-100 shadow-2xl"
+                            }`}
                     >
                         {/* Decorative gradient */}
                         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brightPink/5 to-transparent" />
@@ -211,31 +195,28 @@ const About = () => {
                                     <FaBullseye className="w-10 h-10 text-brightPink transition-all duration-300 hover:text-coral hover:scale-110" />
                                     <div>
                                         <p
-                                            className={`text-sm font-semibold uppercase tracking-wider ${
-                                                isDark
-                                                    ? "text-brightPink"
-                                                    : "text-brightPink"
-                                            }`}
+                                            className={`text-sm font-semibold uppercase tracking-wider ${isDark
+                                                ? "text-brightPink"
+                                                : "text-brightPink"
+                                                }`}
                                         >
                                             Our Purpose
                                         </p>
                                         <h2
-                                            className={`text-3xl font-bold ${
-                                                isDark
-                                                    ? "text-white"
-                                                    : "text-gray-900"
-                                            }`}
+                                            className={`text-3xl font-bold ${isDark
+                                                ? "text-white"
+                                                : "text-gray-900"
+                                                }`}
                                         >
                                             Our Mission
                                         </h2>
                                     </div>
                                 </div>
                                 <p
-                                    className={`text-lg leading-relaxed mb-6 ${
-                                        isDark
-                                            ? "text-gray-400"
-                                            : "text-gray-600"
-                                    }`}
+                                    className={`text-lg leading-relaxed mb-6 ${isDark
+                                        ? "text-gray-400"
+                                        : "text-gray-600"
+                                        }`}
                                 >
                                     At InnoFund, we believe that great ideas
                                     deserve to be realized. Our platform
@@ -247,29 +228,26 @@ const About = () => {
                                 </p>
                                 <div className="flex flex-wrap gap-3">
                                     <span
-                                        className={`px-4 py-2 rounded-full text-sm font-medium ${
-                                            isDark
-                                                ? "bg-brightPink/10 text-brightPink"
-                                                : "bg-brightPink/10 text-brightPink"
-                                        }`}
+                                        className={`px-4 py-2 rounded-full text-sm font-medium ${isDark
+                                            ? "bg-brightPink/10 text-brightPink"
+                                            : "bg-brightPink/10 text-brightPink"
+                                            }`}
                                     >
                                         🎯 Goal-Oriented
                                     </span>
                                     <span
-                                        className={`px-4 py-2 rounded-full text-sm font-medium ${
-                                            isDark
-                                                ? "bg-neonGreen/10 text-neonGreen"
-                                                : "bg-neonGreen/10 text-neonGreen"
-                                        }`}
+                                        className={`px-4 py-2 rounded-full text-sm font-medium ${isDark
+                                            ? "bg-neonGreen/10 text-neonGreen"
+                                            : "bg-neonGreen/10 text-neonGreen"
+                                            }`}
                                     >
                                         💡 Innovation-Driven
                                     </span>
                                     <span
-                                        className={`px-4 py-2 rounded-full text-sm font-medium ${
-                                            isDark
-                                                ? "bg-violet/10 text-violet"
-                                                : "bg-violet/10 text-violet"
-                                        }`}
+                                        className={`px-4 py-2 rounded-full text-sm font-medium ${isDark
+                                            ? "bg-violet/10 text-violet"
+                                            : "bg-violet/10 text-violet"
+                                            }`}
                                     >
                                         🤝 Community-Focused
                                     </span>
@@ -289,19 +267,17 @@ const About = () => {
                 <div className="mb-20">
                     <div className="text-center mb-12">
                         <span
-                            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-4 ${
-                                isDark
-                                    ? "bg-softOrange/10 text-softOrange"
-                                    : "bg-softOrange/10 text-softOrange"
-                            }`}
+                            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-4 ${isDark
+                                ? "bg-softOrange/10 text-softOrange"
+                                : "bg-softOrange/10 text-softOrange"
+                                }`}
                         >
                             <FaLightbulb className="w-4 h-4" />
                             Simple Process
                         </span>
                         <h2
-                            className={`text-3xl sm:text-4xl font-bold ${
-                                isDark ? "text-white" : "text-gray-900"
-                            }`}
+                            className={`text-3xl sm:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"
+                                }`}
                         >
                             How It{" "}
                             <span className="bg-gradient-to-r from-softOrange to-coral bg-clip-text text-transparent">
@@ -316,7 +292,7 @@ const About = () => {
                                 step: "01",
                                 title: "Create Campaign",
                                 desc: "Sign up and create your campaign with compelling story and goals.",
-                                icon: "✨",
+                                icon: "➕",
                                 color: "from-brightPink to-coral",
                             },
                             {
@@ -336,20 +312,18 @@ const About = () => {
                         ].map((item, index) => (
                             <div
                                 key={index}
-                                className={`group relative p-8 rounded-3xl border transition-all duration-500 hover:-translate-y-2 ${
-                                    isDark
-                                        ? "bg-darkCard/80 border-darkBorder hover:border-transparent"
-                                        : "bg-white border-gray-100 hover:border-transparent shadow-lg hover:shadow-2xl"
-                                }`}
+                                className={`group relative p-8 rounded-3xl border transition-all duration-500 hover:-translate-y-2 ${isDark
+                                    ? "bg-darkCard/80 border-darkBorder hover:border-transparent"
+                                    : "bg-white border-gray-100 hover:border-transparent shadow-lg hover:shadow-2xl"
+                                    }`}
                             >
                                 {/* Hover gradient border */}
                                 <div
                                     className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-[1px]`}
                                 >
                                     <div
-                                        className={`w-full h-full rounded-3xl ${
-                                            isDark ? "bg-darkCard" : "bg-white"
-                                        }`}
+                                        className={`w-full h-full rounded-3xl ${isDark ? "bg-darkCard" : "bg-white"
+                                            }`}
                                     />
                                 </div>
 
@@ -365,20 +339,18 @@ const About = () => {
                                         </span>
                                     </div>
                                     <h3
-                                        className={`text-xl font-bold mb-3 ${
-                                            isDark
-                                                ? "text-white"
-                                                : "text-gray-900"
-                                        }`}
+                                        className={`text-xl font-bold mb-3 ${isDark
+                                            ? "text-white"
+                                            : "text-gray-900"
+                                            }`}
                                     >
                                         {item.title}
                                     </h3>
                                     <p
-                                        className={`leading-relaxed ${
-                                            isDark
-                                                ? "text-gray-400"
-                                                : "text-gray-600"
-                                        }`}
+                                        className={`leading-relaxed ${isDark
+                                            ? "text-gray-400"
+                                            : "text-gray-600"
+                                            }`}
                                     >
                                         {item.desc}
                                     </p>
@@ -392,19 +364,17 @@ const About = () => {
                 <div className="mb-20">
                     <div className="text-center mb-12">
                         <span
-                            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-4 ${
-                                isDark
-                                    ? "bg-neonGreen/10 text-neonGreen"
-                                    : "bg-neonGreen/10 text-neonGreen"
-                            }`}
+                            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-4 ${isDark
+                                ? "bg-neonGreen/10 text-neonGreen"
+                                : "bg-neonGreen/10 text-neonGreen"
+                                }`}
                         >
                             <FaUsers className="w-4 h-4" />
                             What We Stand For
                         </span>
                         <h2
-                            className={`text-3xl sm:text-4xl font-bold ${
-                                isDark ? "text-white" : "text-gray-900"
-                            }`}
+                            className={`text-3xl sm:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"
+                                }`}
                         >
                             Our{" "}
                             <span className="bg-gradient-to-r from-neonGreen to-teal bg-clip-text text-transparent">
@@ -417,28 +387,25 @@ const About = () => {
                         {values.map((value, index) => (
                             <div
                                 key={index}
-                                className={`group p-8 rounded-3xl border text-center transition-all duration-500 hover:-translate-y-2 ${
-                                    isDark
-                                        ? "bg-darkCard/50 border-darkBorder hover:bg-darkCard"
-                                        : "bg-white/80 border-gray-100 hover:bg-white shadow-lg hover:shadow-xl"
-                                }`}
+                                className={`group p-8 rounded-3xl border text-center transition-all duration-500 hover:-translate-y-2 ${isDark
+                                    ? "bg-darkCard/50 border-darkBorder hover:bg-darkCard"
+                                    : "bg-white/80 border-gray-100 hover:bg-white shadow-lg hover:shadow-xl"
+                                    }`}
                             >
                                 <div className="flex justify-center mb-6">
                                     <value.icon className={`w-12 h-12 ${value.color} ${value.hoverColor} transition-all duration-500 group-hover:scale-125`} />
                                 </div>
                                 <h3
-                                    className={`text-xl font-bold mb-3 ${
-                                        isDark ? "text-white" : "text-gray-900"
-                                    }`}
+                                    className={`text-xl font-bold mb-3 ${isDark ? "text-white" : "text-gray-900"
+                                        }`}
                                 >
                                     {value.title}
                                 </h3>
                                 <p
-                                    className={`leading-relaxed ${
-                                        isDark
-                                            ? "text-gray-400"
-                                            : "text-gray-600"
-                                    }`}
+                                    className={`leading-relaxed ${isDark
+                                        ? "text-gray-400"
+                                        : "text-gray-600"
+                                        }`}
                                 >
                                     {value.desc}
                                 </p>
@@ -449,11 +416,10 @@ const About = () => {
 
                 {/* CTA Section */}
                 <div
-                    className={`relative overflow-hidden rounded-3xl p-10 lg:p-16 text-center ${
-                        isDark
-                            ? "bg-gradient-to-r from-darkCard to-darkBg border border-darkBorder"
-                            : ""
-                    }`}
+                    className={`relative overflow-hidden rounded-3xl p-10 lg:p-16 text-center ${isDark
+                        ? "bg-gradient-to-r from-darkCard to-darkBg border border-darkBorder"
+                        : ""
+                        }`}
                 >
                     {/* Background gradient */}
                     <div className="absolute inset-0 bg-gradient-to-r from-brightPink via-coral to-softOrange opacity-90" />
@@ -485,7 +451,6 @@ const About = () => {
                                 to="/add-campaign"
                                 className="group inline-flex items-center gap-3 bg-white/20 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 rounded-2xl hover:bg-white/30 transition-all duration-300 font-bold text-lg hover:scale-105"
                             >
-                                <HiSparkles className="w-5 h-5 transition-transform duration-300 group-hover:rotate-12" />
                                 Start Your Campaign
                             </Link>
                         </div>

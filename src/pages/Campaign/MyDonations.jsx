@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useTheme } from "../../provider/ThemeProvider";
-import { HiSparkles, HiOutlineHeart, HiOutlineCurrencyDollar, HiOutlineCalendar, HiOutlineMail, HiOutlineUser, HiExternalLink } from "react-icons/hi";
+import { HiOutlineHeart, HiOutlineCurrencyDollar, HiOutlineCalendar, HiOutlineMail, HiOutlineUser, HiExternalLink } from "react-icons/hi";
 import { FaHandHoldingHeart, FaGift, FaChartLine } from "react-icons/fa";
 
 const MyDonations = () => {
@@ -48,20 +48,10 @@ const MyDonations = () => {
             <div className="absolute top-60 left-32 w-2 h-2 bg-coral/50 rounded-full animate-bounce" style={{ animationDuration: "4s", animationDelay: "1s" }} />
 
             <div className="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-                
+
                 {/* Header Section */}
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-10">
                     <div>
-                        {/* Badge */}
-                        <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-4 backdrop-blur-sm border ${
-                            isDark
-                                ? "bg-neonGreen/10 text-neonGreen border-neonGreen/20"
-                                : "bg-neonGreen/10 text-neonGreen border-neonGreen/20"
-                        }`}>
-                            <HiSparkles className="w-4 h-4 animate-pulse" />
-                            <span>Donation History</span>
-                        </div>
-
                         <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 ${isDark ? "text-white" : "text-gray-900"}`}>
                             My{" "}
                             <span className="bg-gradient-to-r from-neonGreen via-teal to-coral bg-clip-text text-transparent">
@@ -91,13 +81,12 @@ const MyDonations = () => {
                         { label: "Campaigns Supported", value: new Set(donations.map(d => d.campaignId)).size || donations.length, icon: FaHandHoldingHeart, color: "text-brightPink" },
                         { label: "Impact Score", value: Math.min(100, donations.length * 10) + "%", icon: FaChartLine, color: "text-violet" },
                     ].map((stat, index) => (
-                        <div 
+                        <div
                             key={index}
-                            className={`p-4 rounded-2xl border backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 ${
-                                isDark 
-                                    ? "bg-darkCard/50 border-darkBorder hover:border-neonGreen/30" 
-                                    : "bg-white/80 border-gray-100 shadow-lg hover:shadow-xl"
-                            }`}
+                            className={`p-4 rounded-2xl border backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 ${isDark
+                                ? "bg-darkCard/50 border-darkBorder hover:border-neonGreen/30"
+                                : "bg-white/80 border-gray-100 shadow-lg hover:shadow-xl"
+                                }`}
                         >
                             <stat.icon className={`w-5 h-5 ${stat.color} mb-2`} />
                             <p className={`text-2xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>{stat.value}</p>
@@ -115,9 +104,8 @@ const MyDonations = () => {
                             <h2 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
                                 Donation Records
                             </h2>
-                            <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${
-                                isDark ? "bg-neonGreen/20 text-neonGreen" : "bg-neonGreen/10 text-neonGreen"
-                            }`}>
+                            <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${isDark ? "bg-neonGreen/20 text-neonGreen" : "bg-neonGreen/10 text-neonGreen"
+                                }`}>
                                 {donations.length} total
                             </span>
                         </div>
@@ -174,28 +162,25 @@ const MyDonations = () => {
                                 <tbody className="divide-y divide-gray-100 dark:divide-darkBorder">
                                     {donations.map((donation, index) => {
                                         const typeBadge = getTypeBadge(donation.type);
-                                        
+
                                         return (
-                                            <tr 
-                                                key={donation._id} 
-                                                className={`group transition-all duration-300 ${
-                                                    isDark 
-                                                        ? "hover:bg-darkBg/50" 
-                                                        : "hover:bg-gray-50/80"
-                                                }`}
+                                            <tr
+                                                key={donation._id}
+                                                className={`group transition-all duration-300 ${isDark
+                                                    ? "hover:bg-darkBg/50"
+                                                    : "hover:bg-gray-50/80"
+                                                    }`}
                                             >
                                                 <td className={`px-6 py-5 ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-                                                    <span className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-medium ${
-                                                        isDark ? "bg-darkBorder text-gray-300" : "bg-gray-100 text-gray-600"
-                                                    }`}>
+                                                    <span className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-medium ${isDark ? "bg-darkBorder text-gray-300" : "bg-gray-100 text-gray-600"
+                                                        }`}>
                                                         {index + 1}
                                                     </span>
                                                 </td>
                                                 <td className="px-6 py-5">
                                                     <div className="flex items-center gap-3">
-                                                        <div className={`w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 ring-2 ring-offset-2 ${
-                                                            isDark ? "ring-neonGreen/30 ring-offset-darkCard" : "ring-neonGreen/20 ring-offset-white"
-                                                        }`}>
+                                                        <div className={`w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 ring-2 ring-offset-2 ${isDark ? "ring-neonGreen/30 ring-offset-darkCard" : "ring-neonGreen/20 ring-offset-white"
+                                                            }`}>
                                                             {donation.image ? (
                                                                 <img src={donation.image} alt={donation.title} className="w-full h-full object-cover" />
                                                             ) : (
@@ -248,11 +233,10 @@ const MyDonations = () => {
                                                     <div className="flex justify-end">
                                                         <Link
                                                             to={`/campaigns/${donation.campaignId}`}
-                                                            className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 ${
-                                                                isDark 
-                                                                    ? "bg-neonGreen/20 text-neonGreen hover:bg-neonGreen/30" 
-                                                                    : "bg-neonGreen/10 text-neonGreen hover:bg-neonGreen/20"
-                                                            }`}
+                                                            className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 ${isDark
+                                                                ? "bg-neonGreen/20 text-neonGreen hover:bg-neonGreen/30"
+                                                                : "bg-neonGreen/10 text-neonGreen hover:bg-neonGreen/20"
+                                                                }`}
                                                         >
                                                             <HiExternalLink className="w-4 h-4" />
                                                             View
@@ -270,9 +254,8 @@ const MyDonations = () => {
 
                 {/* Thank You Message */}
                 {donations.length > 0 && (
-                    <div className={`mt-8 p-6 rounded-3xl border text-center ${
-                        isDark ? "bg-gradient-to-r from-darkCard to-darkBg border-darkBorder" : "bg-gradient-to-r from-lightGreen/30 to-lightPink/30 border-gray-100"
-                    }`}>
+                    <div className={`mt-8 p-6 rounded-3xl border text-center ${isDark ? "bg-gradient-to-r from-darkCard to-darkBg border-darkBorder" : "bg-gradient-to-r from-lightGreen/30 to-lightPink/30 border-gray-100"
+                        }`}>
                         <div className="flex items-center justify-center gap-3 mb-3">
                             <span className="text-3xl">💖</span>
                             <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>

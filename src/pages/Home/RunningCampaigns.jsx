@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CampaignCard from "../../components/CampaignCard";
 import { FaArrowRight, FaFire, FaRocket } from "react-icons/fa";
-import { HiSparkles } from "react-icons/hi";
 import { useTheme } from "../../provider/ThemeProvider";
 
 const RunningCampaigns = () => {
@@ -21,9 +20,8 @@ const RunningCampaigns = () => {
     }, []);
 
     const SkeletonCard = () => (
-        <div className={`relative rounded-3xl overflow-hidden shadow-xl border ${
-            isDark ? "bg-darkCard border-darkBorder" : "bg-white border-gray-100"
-        }`}>
+        <div className={`relative rounded-3xl overflow-hidden shadow-xl border ${isDark ? "bg-darkCard border-darkBorder" : "bg-white border-gray-100"
+            }`}>
             {/* Shimmer effect overlay */}
             <div className={`absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent to-transparent z-10 ${isDark ? "via-white/10" : "via-white/60"}`} />
 
@@ -84,11 +82,10 @@ const RunningCampaigns = () => {
                 {/* Section Header */}
                 <div className="text-center mb-16 sm:mb-20">
                     {/* Trending badge */}
-                    <div className={`inline-flex items-center gap-2 backdrop-blur-sm text-orange-600 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-lg shadow-orange-500/10 ${
-                        isDark 
-                            ? "bg-gradient-to-r from-orange-500/20 via-red-500/20 to-brightPink/20 border border-orange-500/30"
-                            : "bg-gradient-to-r from-orange-500/10 via-red-500/10 to-brightPink/10 border border-orange-200/50"
-                    }`}>
+                    <div className={`inline-flex items-center gap-2 backdrop-blur-sm text-orange-600 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-lg shadow-orange-500/10 ${isDark
+                        ? "bg-gradient-to-r from-orange-500/20 via-red-500/20 to-brightPink/20 border border-orange-500/30"
+                        : "bg-gradient-to-r from-orange-500/10 via-red-500/10 to-brightPink/10 border border-orange-200/50"
+                        }`}>
                         <FaFire className="text-orange-500 animate-pulse" />
                         <span className={isDark ? "text-orange-400" : "text-orange-600"}>Trending Now</span>
                         <span className="w-2 h-2 rounded-full bg-orange-500 animate-ping" />
@@ -96,11 +93,8 @@ const RunningCampaigns = () => {
 
                     <h2 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
                         Running{" "}
-                        <span className="relative inline-block">
-                            <span className="bg-gradient-to-r from-brightPink via-softOrange to-brightPink bg-clip-text text-transparent">
-                                Campaigns
-                            </span>
-                            <HiSparkles className="absolute -top-2 -right-6 w-6 h-6 text-softOrange animate-pulse" />
+                        <span className="relative bg-gradient-to-r from-brightPink via-softOrange to-brightPink bg-clip-text text-transparent">
+                            Campaigns
                         </span>
                     </h2>
 
