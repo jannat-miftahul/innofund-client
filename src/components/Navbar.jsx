@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { AuthContext } from "../provider/AuthProvider";
 import { useTheme } from "../provider/ThemeProvider";
 import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
-import { RiCloseLine, RiSearchLine, RiSparklingFill } from "react-icons/ri";
+import { RiCloseLine, RiSearchLine } from "react-icons/ri";
 import { IoRocketSharp, IoChevronDown, IoWallet, IoHeart, IoAddCircle, IoSunny, IoMoon } from "react-icons/io5";
 import { HiOutlineBell } from "react-icons/hi2";
 import logo from "../assets/innofund-logo.png"
@@ -92,8 +92,6 @@ const Navbar = () => {
         >
             {icon && icon}
             <span>{label}</span>
-            {/* Sparkle on hover */}
-            <RiSparklingFill className="absolute -top-1 -right-1 w-3 h-3 text-neonGreen opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </NavLink>
     );
 
@@ -333,11 +331,11 @@ const Navbar = () => {
                                         to="/auth/signup"
                                         className="group relative flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-brightPink to-coral text-white rounded-full font-semibold text-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-brightPink/40 hover:scale-105"
                                     >
-                                        <span className="relative">
+                                        <div className="absolute inset-0 bg-gradient-to-r from-coral to-brightPink opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        <span className="relative z-10">
                                             Get Started
                                         </span>
-                                        <AiOutlineLogin className="relative w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                                        <div className="absolute inset-0 bg-gradient-to-r from-coral to-brightPink opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        <AiOutlineLogin className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                                     </Link>
                                 </div>
                             )}
@@ -506,7 +504,6 @@ const Navbar = () => {
                                         to="/auth/signup"
                                         className="w-full flex items-center justify-center gap-2 px-4 py-3.5 bg-gradient-to-r from-brightPink to-coral text-white rounded-2xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brightPink/30"
                                     >
-                                        <RiSparklingFill className="w-5 h-5" />
                                         Get Started Free
                                     </Link>
                                     <Link

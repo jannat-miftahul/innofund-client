@@ -5,7 +5,6 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useTheme } from "../../provider/ThemeProvider";
 import { HiOutlineMail, HiOutlineLockClosed, HiOutlineArrowRight } from "react-icons/hi";
-import { IoSparkles } from "react-icons/io5";
 import signinImg from "../../assets/undraw_access-account_idy0.svg";
 
 const Signin = () => {
@@ -82,12 +81,6 @@ const Signin = () => {
 
                 {/* Left Side - Illustration & Welcome Text */}
                 <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left max-w-lg">
-                    {/* Welcome Badge */}
-                    <div className={`inline-flex items-center gap-2 px-4 py-2 backdrop-blur-sm rounded-full border shadow-lg mb-6 animate-bounce ${isDark ? "bg-darkCard/60 border-darkBorder" : "bg-white/60 border-white/50"}`} style={{ animationDuration: "3s" }}>
-                        <IoSparkles className="w-4 h-4 text-brightPink" />
-                        <span className={`text-sm font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>Welcome back to InnoFund</span>
-                    </div>
-
                     <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
                         <span className={`bg-clip-text text-transparent ${isDark ? "bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100" : "bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800"}`}>
                             Sign in to

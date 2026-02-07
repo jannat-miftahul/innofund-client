@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { FaHandHoldingDollar, FaSackDollar } from "react-icons/fa6";
 import { FaRegCalendarAlt, FaArrowRight } from "react-icons/fa";
-import { HiSparkles } from "react-icons/hi";
+import { MdCampaign } from "react-icons/md";
 import { useTheme } from "../provider/ThemeProvider";
 
 const CampaignCard = ({ campaign }) => {
@@ -72,7 +72,7 @@ const CampaignCard = ({ campaign }) => {
                                     : "bg-white/90 text-brightPink border-white/50 shadow-sm"
                             }`}
                         >
-                            <HiSparkles className="w-3 h-3" />
+                            <MdCampaign className="w-3 h-3" />
                             {campaign.type}
                         </span>
 

@@ -3,7 +3,8 @@ import { useTheme } from "../provider/ThemeProvider";
 import { FaYoutube, FaHeart, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { RiTwitterXFill, RiSendPlaneFill } from "react-icons/ri";
 import { SiFacebook } from "react-icons/si";
-import { HiSparkles, HiLocationMarker, HiMail, HiPhone } from "react-icons/hi";
+import { HiLocationMarker, HiMail, HiPhone } from "react-icons/hi";
+import { IoCheckmarkDoneCircleOutline } from "react-icons/io5";
 import { IoRocketSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import logo from "../assets/innofund-logo.png"
@@ -116,7 +117,7 @@ const Footer = () => {
                                 >
                                     {isSubscribed ? (
                                         <>
-                                            <HiSparkles className="w-5 h-5" />
+                                            <IoCheckmarkDoneCircleOutline className="w-5 h-5" />
                                             Subscribed!
                                         </>
                                     ) : (
